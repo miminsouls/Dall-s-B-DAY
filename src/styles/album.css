@@ -1,0 +1,521 @@
+/* ───────── Escenario y tamaño del álbum ───────── */
+.stage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0 92px;
+  --rim: 10px;
+}
+.stage.double {
+  --page-h: min(calc(100dvh - 176px), calc((100vw - 170px) / 2 / 0.72), 820px);
+  --page-w: calc(var(--page-h) * 0.72);
+}
+.stage.single {
+  --rim: 7px;
+  --page-w: min(calc(100vw - 36px), calc((100dvh - 190px) * 0.72), 560px);
+  --page-h: calc(var(--page-w) / 0.72);
+  padding: 56px 0 100px;
+}
+
+/* ───────── Libro ───────── */
+.book {
+  position: relative;
+  width: calc(var(--page-w) * 2);
+  height: var(--page-h);
+  perspective: 2800px;
+  transition: transform var(--open-ms) cubic-bezier(0.6, 0.05, 0.3, 1);
+  touch-action: pan-y;
+  outline: none;
+}
+.single .book {
+  width: var(--page-w);
+  perspective: 1800px;
+}
+.double .book.stage-closed {
+  transform: translateX(-25%);
+}
+
+/* Tapas (cuero bajo las páginas) */
+.board {
+  position: absolute;
+  top: calc(var(--rim) * -1);
+  bottom: calc(var(--rim) * -1);
+  width: calc(var(--page-w) + var(--rim));
+  z-index: 0;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.55),
+    0 8px 18px rgba(0, 0, 0, 0.45);
+}
+.board-right {
+  right: calc(var(--rim) * -1);
+  border-radius: 2px 6px 6px 2px;
+}
+.board-left {
+  left: calc(var(--rim) * -1);
+  border-radius: 6px 2px 2px 6px;
+}
+.board.is-hidden {
+  visibility: hidden;
+}
+.stage-closed .board-right {
+  box-shadow:
+    0 40px 70px rgba(0, 0, 0, 0.65),
+    0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Cuero */
+.leather {
+  background-color: var(--leather);
+  background-image:
+    radial-gradient(120% 90% at 28% 18%, rgba(255, 220, 200, 0.1), transparent 55%),
+    radial-gradient(100% 100% at 85% 100%, rgba(0, 0, 0, 0.5), transparent 60%),
+    var(--noise),
+    linear-gradient(135deg, var(--leather-light), var(--leather) 45%, var(--leather-dark));
+  background-size: auto, auto, 180px, auto;
+}
+
+/* Mitades (páginas estáticas) */
+.half {
+  position: absolute;
+  top: 0;
+  width: var(--page-w);
+  height: 100%;
+  z-index: 2;
+}
+.half.left {
+  left: 0;
+  box-shadow: -1px 0 0 #d8cbad, -2px 1px 0 #c6b693, -3px 1px 0 #d8cbad, -4px 2px 0 #b9a782, -5px 2px 0 #d1c3a4;
+}
+.half.right,
+.half.solo {
+  right: 0;
+  box-shadow: 1px 0 0 #d8cbad, 2px 1px 0 #c6b693, 3px 1px 0 #d8cbad, 4px 2px 0 #b9a782, 5px 2px 0 #d1c3a4;
+}
+.face-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.spine-shadow {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  transform: translateX(-50%);
+  z-index: 9;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(70, 40, 15, 0.12) 40%,
+    rgba(30, 15, 5, 0.32) 50%,
+    rgba(70, 40, 15, 0.12) 60%,
+    transparent
+  );
+}
+
+/* ───────── Hoja que gira ───────── */
+.leaf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--page-w);
+  height: 100%;
+  z-index: 10;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.leaf-fwd {
+  animation: leaf-fwd var(--flip-ms) cubic-bezier(0.45, 0.05, 0.3, 1) forwards;
+}
+.leaf-back {
+  animation: leaf-back var(--flip-ms) cubic-bezier(0.45, 0.05, 0.3, 1) forwards;
+}
+@keyframes leaf-fwd {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-180deg); }
+}
+@keyframes leaf-back {
+  from { transform: rotateY(-180deg); }
+  to { transform: rotateY(0deg); }
+}
+.leaf-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.leaf-face.back {
+  transform: rotateY(180deg);
+}
+.leaf-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: leaf-shade var(--flip-ms) ease-in-out forwards;
+}
+.leaf-face.front::after {
+  background: linear-gradient(to right, rgba(40, 20, 5, 0.35), rgba(40, 20, 5, 0.05) 60%);
+}
+.leaf-face.back::after {
+  background: linear-gradient(to left, rgba(40, 20, 5, 0.35), rgba(40, 20, 5, 0.05) 60%);
+}
+@keyframes leaf-shade {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ───────── Cubierta ───────── */
+.cover {
+  position: absolute;
+  top: calc(var(--rim) * -1);
+  bottom: calc(var(--rim) * -1);
+  right: calc(var(--rim) * -1);
+  width: calc(var(--page-w) + var(--rim));
+  z-index: 20;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform var(--open-ms) cubic-bezier(0.6, 0.05, 0.3, 1);
+}
+.stage-opening .cover,
+.stage-open .cover,
+.stage-closing .cover {
+  transform: rotateY(-180deg);
+}
+.stage-open .cover {
+  visibility: hidden;
+}
+.stage-closing .cover {
+  transition: none;
+}
+.stage-closed .cover:hover,
+.stage-closed .cover:focus-within {
+  transform: rotateY(-9deg);
+  transition-duration: 0.6s;
+}
+.single .stage-opening .cover {
+  opacity: 0;
+  transition:
+    transform var(--open-ms) cubic-bezier(0.6, 0.05, 0.3, 1),
+    opacity calc(var(--open-ms) * 0.5) ease calc(var(--open-ms) * 0.4);
+}
+
+.cover-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  container-type: size;
+  overflow: hidden;
+}
+.cover-front {
+  border-radius: 2px 7px 7px 2px;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+    inset 0 0 40px rgba(0, 0, 0, 0.45);
+}
+.cover-back {
+  transform: rotateY(180deg);
+  border-radius: 7px 2px 2px 7px;
+}
+.endpaper-inset {
+  position: absolute;
+  top: var(--rim);
+  bottom: var(--rim);
+  left: var(--rim);
+  right: 0;
+}
+
+.cover-hinge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(255, 255, 255, 0.07) 45%, rgba(0, 0, 0, 0.4));
+  border-right: 1px solid rgba(201, 164, 99, 0.35);
+}
+.cover-tooling {
+  position: absolute;
+  inset: 5% 6% 5% 12%;
+  border: 0.5cqw solid rgba(201, 164, 99, 0.6);
+  color: var(--gold-dim);
+}
+.cover-tooling::after {
+  content: '';
+  position: absolute;
+  inset: 1.6cqw;
+  border: 1px solid rgba(201, 164, 99, 0.4);
+}
+.co {
+  position: absolute;
+  width: 16cqw;
+  height: 16cqw;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.co.tl { top: 2.6cqw; left: 2.6cqw; }
+.co.tr { top: 2.6cqw; right: 2.6cqw; transform: scaleX(-1); }
+.co.bl { bottom: 2.6cqw; left: 2.6cqw; transform: scaleY(-1); }
+.co.br { bottom: 2.6cqw; right: 2.6cqw; transform: scale(-1, -1); }
+
+.cover-metal {
+  position: absolute;
+  width: 13%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0dca8, #b08a46 35%, #6b5128 65%, #c9a463);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+.cover-metal.tr {
+  top: 0;
+  right: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+.cover-metal.br {
+  bottom: 0;
+  right: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.cover-title {
+  position: absolute;
+  inset: 18% 12% 18% 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--gold);
+}
+.gilded {
+  background: linear-gradient(180deg, #f3dea2 0%, #c9a463 42%, #8a6a3a 62%, #dcbf7d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.7)) drop-shadow(0 -1px 0 rgba(255, 225, 170, 0.12));
+  padding: 0 0.25em;
+}
+.ct-kicker {
+  font-family: var(--font-title);
+  font-size: 4.2cqw;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 2cqw;
+}
+.ct-name {
+  font-family: var(--font-script);
+  font-size: 14cqw;
+  line-height: 1.15;
+}
+.ct-amp {
+  font-family: var(--font-title);
+  font-size: 7cqw;
+  line-height: 1;
+}
+.ct-divider {
+  width: 52cqw;
+  margin: 4cqw 0 2.5cqw;
+  color: var(--gold-dim);
+}
+.ct-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 4cqw;
+  color: rgba(232, 211, 157, 0.75);
+}
+
+.cover-button {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.cover-button:disabled {
+  cursor: default;
+}
+.cover-button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: -10px;
+}
+
+.open-hint {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 28px);
+  width: var(--page-w);
+  text-align: center;
+  font-family: var(--font-title);
+  letter-spacing: 0.14em;
+  font-size: 0.95rem;
+  color: rgba(232, 211, 157, 0.7);
+  animation: hint 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes hint {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+/* ───────── Guarda jaspeada ───────── */
+.endpaper {
+  background-color: #3a0f17;
+  background-image:
+    radial-gradient(ellipse 40% 25% at 22% 30%, rgba(201, 164, 99, 0.22), transparent 70%),
+    radial-gradient(ellipse 30% 40% at 76% 66%, rgba(201, 164, 99, 0.16), transparent 70%),
+    var(--noise),
+    repeating-radial-gradient(circle at 30% 40%, #3a0f17 0 7px, #4d1622 7px 10px, #2c0a10 10px 16px),
+    repeating-radial-gradient(circle at 75% 80%, transparent 0 9px, rgba(20, 40, 50, 0.25) 9px 12px);
+  background-size: auto, auto, 180px, auto, auto;
+}
+.page.endpaper {
+  position: absolute;
+  inset: 0;
+}
+.endpaper-frame {
+  position: absolute;
+  inset: 5%;
+  border: 1px solid rgba(201, 164, 99, 0.35);
+}
+
+/* ───────── Marcapáginas ───────── */
+.ribbons {
+  position: absolute;
+  top: 9%;
+  right: -36px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ribbon {
+  width: 46px;
+  height: 46px;
+  padding: 0 0 0 12px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  color: var(--gold-light);
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s;
+  clip-path: polygon(0 0, 100% 0, 86% 50%, 100% 100%, 0 100%);
+}
+.ribbon-0 { background: linear-gradient(to right, #4a1019, #7a2430); }
+.ribbon-1 { background: linear-gradient(to right, #5e4920, #9c7a43); color: #fff6dc; }
+.ribbon-2 { background: linear-gradient(to right, #1f3328, #3c5a47); }
+.ribbon:hover,
+.ribbon:focus-visible,
+.ribbon[aria-current='true'] {
+  transform: translateX(8px);
+}
+.ribbon:focus-visible {
+  outline-offset: -4px;
+}
+
+/* ───────── Esquinas para pasar página ───────── */
+.corner-btn {
+  position: absolute;
+  bottom: 0;
+  width: 64px;
+  height: 64px;
+  z-index: 12;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.corner-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 26px;
+  height: 26px;
+  transition: width 0.25s ease, height 0.25s ease;
+  filter: drop-shadow(-2px -2px 3px rgba(40, 20, 5, 0.25));
+}
+.corner-btn.next {
+  right: 0;
+}
+.corner-btn.next::before {
+  right: 0;
+  background: linear-gradient(315deg, rgba(20, 8, 8, 0.85) 0 50%, #d2c19c 50%, #efe4cc 100%);
+}
+.corner-btn.prev {
+  left: 0;
+}
+.corner-btn.prev::before {
+  left: 0;
+  background: linear-gradient(45deg, rgba(20, 8, 8, 0.85) 0 50%, #d2c19c 50%, #efe4cc 100%);
+}
+.corner-btn:hover::before,
+.corner-btn:focus-visible::before {
+  width: 46px;
+  height: 46px;
+}
+.corner-btn:focus-visible {
+  outline-offset: -4px;
+}
+
+/* ───────── Transiciones móvil / movimiento reducido ───────── */
+.slide-next {
+  animation: slide-next 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.slide-prev {
+  animation: slide-prev 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes slide-next {
+  from { opacity: 0; transform: translateX(12%) rotateY(-10deg); transform-origin: left center; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slide-prev {
+  from { opacity: 0; transform: translateX(-12%) rotateY(10deg); transform-origin: right center; }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .corner-btn {
+    width: 52px;
+    height: 52px;
+  }
+  .open-hint {
+    top: calc(100% + 22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book {
+    transition: none;
+  }
+  .cover,
+  .single .stage-opening .cover {
+    transition: opacity 0.3s ease;
+  }
+  .stage-opening .cover,
+  .stage-open .cover,
+  .stage-closing .cover {
+    transform: none;
+    opacity: 0;
+  }
+  .stage-closed .cover:hover,
+  .stage-closed .cover:focus-within {
+    transform: none;
+  }
+  .slide-next,
+  .slide-prev {
+    animation: fade 0.2s ease both;
+  }
+  .open-hint {
+    animation: none;
+  }
+  .ribbon,
+  .corner-btn::before {
+    transition: none;
+  }
+}

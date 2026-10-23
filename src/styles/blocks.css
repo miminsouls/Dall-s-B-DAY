@@ -1,0 +1,428 @@
+/* Todos los tamaños en cqw (relativos al ancho de la página). */
+.block {
+  position: absolute;
+}
+
+/* ───────── Fotografías ───────── */
+.photo-inner {
+  position: relative;
+  box-shadow:
+    0 0.5cqw 1cqw rgba(40, 20, 10, 0.25),
+    0 1.6cqw 3cqw rgba(40, 20, 10, 0.2);
+}
+.photo-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.photo-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(0.96) saturate(0.85);
+}
+.photo figcaption,
+.ultrasound figcaption {
+  margin-top: 2cqw;
+  text-align: center;
+  font-family: var(--font-script);
+  font-size: 4.4cqw;
+  line-height: 1.2;
+  color: var(--ink-soft);
+}
+
+/* Marco con borde blanco y esquineros */
+.frame-corners .photo-inner,
+.frame-tape .photo-inner {
+  background: #f4ecdb;
+}
+.frame-corners .photo-image,
+.frame-tape .photo-image {
+  inset: 2.2cqw;
+}
+.photo-corner {
+  position: absolute;
+  width: 20%;
+  aspect-ratio: 1;
+  max-width: 9cqw;
+  background: linear-gradient(135deg, #3a1a1e, #22100f);
+  box-shadow: 0 0 0 1px rgba(201, 164, 99, 0.25);
+}
+.photo-corner.tl { top: -1.2cqw; left: -1.2cqw; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.photo-corner.tr { top: -1.2cqw; right: -1.2cqw; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.photo-corner.bl { bottom: -1.2cqw; left: -1.2cqw; clip-path: polygon(0 0, 100% 100%, 0 100%); }
+.photo-corner.br { bottom: -1.2cqw; right: -1.2cqw; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+
+/* Cinta adhesiva vieja */
+.tape {
+  position: absolute;
+  width: 34%;
+  height: 9%;
+  min-height: 3cqw;
+  background: rgba(228, 215, 178, 0.78);
+  box-shadow: 0 0.3cqw 0.6cqw rgba(60, 40, 10, 0.15);
+  z-index: 2;
+}
+.tape.a { top: -3%; left: -9%; transform: rotate(-38deg); }
+.tape.b { top: -3%; right: -9%; transform: rotate(38deg); }
+
+/* Borde dentado (deckle) */
+.frame-deckle .photo-inner {
+  background: #faf5e8;
+  -webkit-mask:
+    radial-gradient(circle 1cqw at 50% 0, transparent 98%, #000) top / 3cqw 51% repeat-x,
+    radial-gradient(circle 1cqw at 50% 100%, transparent 98%, #000) bottom / 3cqw 51% repeat-x;
+  mask:
+    radial-gradient(circle 1cqw at 50% 0, transparent 98%, #000) top / 3cqw 51% repeat-x,
+    radial-gradient(circle 1cqw at 50% 100%, transparent 98%, #000) bottom / 3cqw 51% repeat-x;
+  filter: drop-shadow(0 1cqw 1.4cqw rgba(40, 20, 10, 0.3));
+  box-shadow: none;
+}
+.frame-deckle .photo-image {
+  inset: 3.4cqw;
+}
+
+/* Marco dorado */
+.frame-gold .photo-inner {
+  background: linear-gradient(135deg, #7d5f2c, #e6cc8c 22%, #9c7a43 45%, #ecd69e 70%, #6f5226);
+  box-shadow:
+    inset 0 0 0 0.4cqw rgba(60, 40, 10, 0.45),
+    0 1cqw 2.6cqw rgba(30, 15, 5, 0.45);
+}
+.frame-gold .photo-image {
+  inset: 2.8cqw;
+  box-shadow: 0 0 0 0.6cqw #f2e8d2, 0 0 0 0.8cqw rgba(110, 80, 40, 0.6);
+}
+
+/* Imagen provisional */
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4cqw;
+  padding: 6%;
+  text-align: center;
+  color: rgba(255, 246, 228, 0.92);
+  background:
+    var(--noise),
+    radial-gradient(circle at 50% 38%, #c9ad85, #8b6f50 70%, #5c4632);
+  background-size: 180px, auto;
+  background-blend-mode: soft-light, normal;
+}
+.placeholder svg {
+  width: 26%;
+  max-width: 14cqw;
+  opacity: 0.85;
+}
+.placeholder-tag {
+  font-family: var(--font-title);
+  font-size: 2.6cqw;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.6cqw 1.6cqw;
+  border: 1px dashed rgba(255, 246, 228, 0.75);
+}
+.placeholder-label {
+  font-style: italic;
+  font-size: 3cqw;
+  line-height: 1.3;
+}
+
+/* ───────── Nota manuscrita ───────── */
+.note {
+  position: relative;
+  padding: 3.4cqw 4cqw 3cqw;
+  background:
+    repeating-linear-gradient(transparent 0 5.6cqw, rgba(110, 130, 170, 0.22) 5.6cqw calc(5.6cqw + 1px)),
+    #fbf6e9;
+  box-shadow: 0 0.6cqw 1.4cqw rgba(40, 20, 10, 0.2);
+}
+.note p {
+  font-family: var(--font-script);
+  font-size: 4.6cqw;
+  line-height: 1.22;
+  color: var(--ink-letter);
+}
+.note-pin {
+  position: absolute;
+  top: -1.6cqw;
+  left: 50%;
+  width: 16cqw;
+  max-width: 40%;
+  height: 3.4cqw;
+  transform: translateX(-50%) rotate(-3deg);
+  background: rgba(228, 215, 178, 0.8);
+}
+
+/* ───────── Flores prensadas ───────── */
+.pressed-flower svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+  filter: saturate(0.8) drop-shadow(0 0.3cqw 0.3cqw rgba(60, 30, 10, 0.18));
+}
+
+/* ───────── Sobre ───────── */
+.envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  perspective: 900px;
+  transition: transform 0.25s ease;
+}
+.envelope:hover {
+  transform: translateY(-0.8cqw);
+}
+.envelope:focus-visible {
+  outline-offset: 1.2cqw;
+}
+.envelope > span {
+  position: absolute;
+}
+.env-back {
+  inset: 0;
+  background: #d9c6a0;
+  border-radius: 0.6cqw;
+  box-shadow: 0 1.2cqw 2.4cqw rgba(40, 20, 10, 0.3);
+}
+.env-letter {
+  left: 7%;
+  right: 7%;
+  top: 7%;
+  bottom: 7%;
+  z-index: 2;
+  padding: 6% 8%;
+  background: #fbf6ea;
+  box-shadow: 0 0.2cqw 0.6cqw rgba(0, 0, 0, 0.12);
+  transition: transform 0.6s cubic-bezier(0.3, 0.7, 0.2, 1) 0.35s;
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+  text-align: left;
+}
+.env-letter-title {
+  font-family: var(--font-script);
+  font-size: 4cqw;
+  color: var(--ink-letter);
+}
+.env-letter-lines {
+  flex: 1;
+  background: repeating-linear-gradient(transparent 0 2.6cqw, rgba(60, 40, 70, 0.25) 2.6cqw calc(2.6cqw + 1px));
+  width: 90%;
+}
+.env-front {
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(170deg, #e7d6b3, #d6c199);
+  clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 0.6cqw;
+}
+.env-flap {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 58%;
+  z-index: 4;
+  background: linear-gradient(180deg, #dcc8a2, #ccb68c);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.55s ease, z-index 0s linear 0.3s;
+  filter: drop-shadow(0 0.4cqw 0.4cqw rgba(0, 0, 0, 0.2));
+}
+.env-seal {
+  left: 50%;
+  top: 58%;
+  z-index: 5;
+  width: 15%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%;
+  background: radial-gradient(circle at 35% 30%, #a63a46, #7a1c27 55%, #4e0f17);
+  box-shadow: 0 0.4cqw 0.8cqw rgba(0, 0, 0, 0.35), inset 0 0 0 0.8cqw rgba(0, 0, 0, 0.12);
+  color: rgba(255, 220, 200, 0.75);
+  font-family: var(--font-title);
+  font-size: 5cqw;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.env-label {
+  left: 0;
+  right: 0;
+  bottom: 9%;
+  z-index: 4;
+  text-align: center;
+  font-family: var(--font-script);
+  font-size: 5cqw;
+  color: var(--ink-letter);
+}
+.envelope.is-open .env-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+.envelope.is-open .env-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.3) rotate(12deg);
+}
+.envelope.is-open .env-letter {
+  transform: translateY(-38%);
+}
+.block-envelope:has(.is-open) {
+  z-index: 3;
+}
+
+/* ───────── Ecografía ───────── */
+.us-print {
+  background: #f7f5ef;
+  padding: 2.2cqw 2.2cqw 2.6cqw;
+  box-shadow: 0 1cqw 2.4cqw rgba(30, 15, 5, 0.35);
+}
+.us-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 2cqw;
+  color: #555;
+  padding-bottom: 1cqw;
+}
+.us-screen {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #0b0b0b;
+  overflow: hidden;
+}
+.us-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
+}
+.us-fan {
+  position: absolute;
+  inset: 0;
+  background:
+    var(--noise),
+    radial-gradient(ellipse 18% 14% at 52% 58%, #111 0 60%, transparent 100%),
+    radial-gradient(ellipse 30% 22% at 50% 58%, #8a8a8a 0 40%, transparent 100%),
+    radial-gradient(circle at 50% 0, transparent 10%, #6d6d6d 12%, #3a3a3a 45%, #1b1b1b 85%, transparent 86%);
+  background-size: 120px, auto, auto, auto;
+  background-blend-mode: overlay, normal, normal, normal;
+  -webkit-mask: conic-gradient(from 145deg at 50% 0, #000 70deg, transparent 0);
+  mask: conic-gradient(from 145deg at 50% 0, #000 70deg, transparent 0);
+}
+.us-tag {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 2.2cqw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ddd;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.4cqw 1cqw;
+}
+/* La etiqueta queda fuera de la máscara del abanico, así que la sacamos del abanico */
+.us-fan {
+  -webkit-mask: none;
+  mask: none;
+  background: none;
+}
+.us-fan::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    var(--noise),
+    radial-gradient(ellipse 18% 14% at 52% 58%, #111 0 60%, transparent 100%),
+    radial-gradient(ellipse 30% 22% at 50% 58%, #8a8a8a 0 40%, transparent 100%),
+    radial-gradient(circle at 50% 0, transparent 10%, #6d6d6d 12%, #3a3a3a 45%, #1b1b1b 85%, transparent 86%);
+  background-size: 120px, auto, auto, auto;
+  background-blend-mode: overlay, normal, normal, normal;
+  -webkit-mask: conic-gradient(from 145deg at 50% 0, #000 70deg, transparent 0);
+  mask: conic-gradient(from 145deg at 50% 0, #000 70deg, transparent 0);
+}
+
+/* ───────── Página vacía para el futuro ───────── */
+.blank-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.blank-title {
+  font-family: var(--font-script);
+  font-weight: normal;
+  font-size: 9cqw;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.blank-divider {
+  width: 40cqw;
+  color: var(--gold-dim);
+  margin-top: 1cqw;
+}
+.blank-slots {
+  position: relative;
+  width: 100%;
+  height: 52cqw;
+  margin-top: 7cqw;
+}
+.blank-slot {
+  position: absolute;
+  border: 1px dashed rgba(94, 74, 58, 0.35);
+}
+.blank-slot.s0 {
+  left: 4%;
+  top: 0;
+  width: 48%;
+  aspect-ratio: 4 / 5;
+  transform: rotate(-2deg);
+}
+.blank-slot.s1 {
+  right: 4%;
+  top: 14cqw;
+  width: 40%;
+  aspect-ratio: 1;
+  transform: rotate(3deg);
+}
+.photo-corner.ghost {
+  background: rgba(90, 22, 32, 0.22);
+  box-shadow: none;
+}
+.blank-text {
+  margin-top: 16cqw;
+  font-style: italic;
+  font-size: 4cqw;
+  color: var(--ink-soft);
+}
+.blank-lines {
+  width: 80%;
+  height: 18cqw;
+  margin-top: 3cqw;
+  background: repeating-linear-gradient(transparent 0 5.6cqw, rgba(94, 74, 58, 0.2) 5.6cqw calc(5.6cqw + 1px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope,
+  .env-flap,
+  .env-letter,
+  .env-seal {
+    transition: none;
+  }
+  .envelope:hover {
+    transform: none;
+  }
+}

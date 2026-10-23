@@ -1,0 +1,133 @@
+/* ───────── Papel ───────── */
+.page {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+  overflow: hidden;
+  color: var(--ink);
+}
+.paper {
+  background-color: var(--paper);
+  background-image:
+    var(--noise),
+    radial-gradient(ellipse 95% 90% at 50% 50%, transparent 62%, rgba(150, 105, 45, 0.2) 100%),
+    radial-gradient(circle at 82% 12%, rgba(170, 120, 60, 0.08), transparent 18%),
+    radial-gradient(circle at 14% 86%, rgba(170, 120, 60, 0.07), transparent 14%),
+    linear-gradient(170deg, #f6eedd, var(--paper) 50%, var(--paper-2));
+  background-size: 180px, auto, auto, auto, auto;
+  background-blend-mode: soft-light, normal, normal, normal, normal;
+  box-shadow: inset 0 0 0 1px rgba(120, 90, 50, 0.14);
+}
+.page.is-clickable {
+  cursor: pointer;
+}
+.page-content {
+  position: absolute;
+  inset: 0;
+}
+.page-gutter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  pointer-events: none;
+}
+.side-left .page-gutter {
+  right: 0;
+  background: linear-gradient(to left, rgba(80, 45, 15, 0.26), transparent);
+}
+.side-right .page-gutter {
+  left: 0;
+  background: linear-gradient(to right, rgba(80, 45, 15, 0.26), transparent);
+}
+.page-number {
+  position: absolute;
+  bottom: 3.6%;
+  font-family: var(--font-title);
+  font-size: 3cqw;
+  color: var(--ink-soft);
+}
+.side-left .page-number { left: 8%; }
+.side-right .page-number { right: 8%; }
+
+.running-head {
+  position: absolute;
+  top: 3.4%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 2.6cqw;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+
+/* ───────── Portadilla ───────── */
+.title-page {
+  position: absolute;
+  inset: 12% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 3cqw;
+}
+.tp-divider {
+  width: 50cqw;
+  color: var(--gold-dim);
+}
+.tp-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-script);
+  font-weight: normal;
+  font-size: 13cqw;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.tp-amp {
+  font-family: var(--font-title);
+  font-size: 6cqw;
+  color: var(--wine);
+}
+.tp-dedication {
+  font-style: italic;
+  font-size: 4.4cqw;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 62cqw;
+  margin-top: 3cqw;
+}
+.tp-date {
+  font-family: var(--font-title);
+  font-size: 3.2cqw;
+  letter-spacing: 0.2em;
+  color: var(--wine);
+}
+
+/* ───────── Encabezado de capítulo ───────── */
+.chapter-title {
+  text-align: center;
+}
+.ch-kicker {
+  font-family: var(--font-title);
+  font-size: 3.4cqw;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--wine);
+}
+.ch-title {
+  font-family: var(--font-script);
+  font-weight: normal;
+  font-size: 9.5cqw;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-top: 1cqw;
+}
+.ch-divider {
+  width: 46cqw;
+  margin-top: 1.5cqw;
+  color: var(--gold-dim);
+}
