@@ -429,7 +429,7 @@
 .hr-card {
   position: relative;
   width: 100%;
-  padding: 3.2cqw 3.4cqw 2.4cqw;
+  padding: 2.8cqw 3.2cqw 2.4cqw;
   background:
     var(--noise),
     radial-gradient(ellipse at center, #fbf5e6 45%, #e8d9bc 100%);
@@ -444,43 +444,29 @@
 .hr-plate {
   text-align: center;
   font-family: var(--font-title);
-  font-size: 2.2cqw;
+  font-size: 2.15cqw;
   letter-spacing: 0.24em;
   color: var(--wine);
-  margin-bottom: 0.4cqw;
+  margin-bottom: 0.6cqw;
 }
 .hr-artwork {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 220 / 236;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.hr-halo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  display: block;
+  width: 92%;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
 }
 .hr-img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transform: scale(1.36);
-  filter: sepia(0.14) contrast(1.02) drop-shadow(0 0.6cqw 1cqw rgba(60, 20, 20, 0.18));
+  filter: sepia(0.12) contrast(1.03) drop-shadow(0 6px 12px rgba(60, 20, 20, 0.16));
 }
 .hr-subtitle {
   text-align: center;
   font-family: var(--font-title);
-  font-size: 2.05cqw;
+  font-size: 2cqw;
   letter-spacing: 0.22em;
   color: #5e3a2e;
-  margin-top: 0.4cqw;
-  padding-top: 0.6cqw;
+  margin-top: 0.8cqw;
+  padding-top: 0.8cqw;
   border-top: 1px solid rgba(181, 141, 72, 0.45);
 }
 .hr-corner {
@@ -499,9 +485,30 @@
   margin-top: 1.6cqw;
   text-align: center;
   font-family: var(--font-script);
-  font-size: 4.1cqw;
-  line-height: 1.2;
+  font-size: 3.9cqw;
+  line-height: 1.18;
   color: var(--ink-soft);
+}
+
+/* ───────── Doodles de sol, luna y estrellas ───────── */
+.doodle {
+  pointer-events: none;
+  opacity: 0.78;
+  mix-blend-mode: multiply;
+}
+.doodle svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.doodle.tone-sepia {
+  color: #6d5138;
+}
+.doodle.tone-gold {
+  color: #967238;
+}
+.doodle.tone-wine {
+  color: #7b2c3b;
 }
 
 @media (prefers-reduced-motion: reduce) {

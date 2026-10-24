@@ -20,46 +20,55 @@ export default function HeartRelic({
 
         <p className="hr-plate">FIG. I · COR MEUM</p>
 
-        <div className="hr-artwork">
-          <svg className="hr-halo" viewBox="0 0 220 240" aria-hidden="true" focusable="false">
-            <defs>
-              <radialGradient id="hrGlow" cx="50%" cy="50%" r="48%">
-                <stop offset="0%" stopColor="#d9b26f" stopOpacity="0.32" />
-                <stop offset="70%" stopColor="#8a2c3b" stopOpacity="0.08" />
-                <stop offset="100%" stopColor="#000" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-            <circle cx="110" cy="120" r="90" fill="url(#hrGlow)" />
-            <ellipse
-              cx="110"
-              cy="120"
-              rx="86"
-              ry="100"
-              fill="none"
-              stroke="#b58d48"
-              strokeWidth="0.9"
-              strokeDasharray="2 3"
-              opacity="0.7"
-            />
-            <ellipse
-              cx="110"
-              cy="120"
-              rx="80"
-              ry="94"
-              fill="none"
-              stroke="#8c6734"
-              strokeWidth="0.6"
-              opacity="0.48"
-            />
-          </svg>
+        <svg
+          className="hr-artwork"
+          viewBox="235 400 810 1045"
+          role="img"
+          aria-label={caption || 'El corazón que Morphine le regaló a Dalliancé'}
+        >
+          <defs>
+            <radialGradient id="hrGlow" cx="50%" cy="50%" r="48%">
+              <stop offset="0%" stopColor="#d9b26f" stopOpacity="0.34" />
+              <stop offset="70%" stopColor="#8a2c3b" stopOpacity="0.09" />
+              <stop offset="100%" stopColor="#000" stopOpacity="0" />
+            </radialGradient>
+          </defs>
 
-          <img
-            className="hr-img"
-            src={withBase(src)}
-            alt={caption || 'El corazón que Morphine le regaló a Dalliancé'}
-            loading="lazy"
+          {/* Halo y doble óvalo grabado alrededor del corazón */}
+          <circle cx="640" cy="922" r="365" fill="url(#hrGlow)" />
+          <ellipse
+            cx="640"
+            cy="922"
+            rx="376"
+            ry="494"
+            fill="none"
+            stroke="#b58d48"
+            strokeWidth="3.4"
+            strokeDasharray="8 11"
+            opacity="0.72"
           />
-        </div>
+          <ellipse
+            cx="640"
+            cy="922"
+            rx="354"
+            ry="470"
+            fill="none"
+            stroke="#8c6734"
+            strokeWidth="2.2"
+            opacity="0.48"
+          />
+
+          {/* Ilustración original de Morphine centrada ópticamente y sin recortes */}
+          <image
+            className="hr-img"
+            href={withBase(src)}
+            x="0"
+            y="0"
+            width="1286"
+            height="1800"
+            preserveAspectRatio="xMidYMid meet"
+          />
+        </svg>
 
         <p className="hr-subtitle">{subtitle || 'STILL BEATING FOR YOU'}</p>
       </div>

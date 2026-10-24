@@ -15,7 +15,6 @@ export default function App() {
       <div className="scene-glow" aria-hidden="true" />
 
       <header className="topbar">
-        <span className="proto-badge">Prototipo · imágenes y textos provisionales</span>
         <MusicToggle config={album.music} />
       </header>
 

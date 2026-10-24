@@ -124,17 +124,6 @@ figure {
 .topbar > * {
   pointer-events: auto;
 }
-.proto-badge {
-  position: fixed;
-  left: 16px;
-  bottom: max(14px, env(safe-area-inset-bottom));
-  font-family: var(--font-title);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: rgba(232, 211, 157, 0.4);
-  white-space: nowrap;
-  pointer-events: none;
-}
 
 .ui-button,
 .music-toggle,
@@ -368,12 +357,6 @@ figure {
 
 /* ───────── Móvil ───────── */
 @media (max-width: 760px) {
-  .proto-badge {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: max(10px, env(safe-area-inset-bottom));
-    font-size: 0.64rem;
-  }
   .music-label {
     display: none;
   }

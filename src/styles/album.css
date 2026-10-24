@@ -335,17 +335,21 @@
 .ct-monogram {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: var(--font-script);
-  font-size: 18cqw;
-  line-height: 1.2;
-  margin-top: 1cqw;
+  font-size: 14.2cqw;
+  line-height: 1;
+  transform: translate(-1.1cqw, 0.5cqw);
+}
+.ct-monogram .gilded {
+  padding: 0 0.14em;
 }
 .ct-amp {
   font-family: var(--font-title);
-  font-size: 8cqw;
+  font-size: 6.6cqw;
   line-height: 1;
-  padding: 0 0.1em;
-  margin: 0 -0.5cqw;
+  padding: 0 0.08em;
+  margin: 0 -0.25cqw;
 }
 .ct-rule {
   width: 28cqw;

@@ -50,6 +50,7 @@ export const album = {
       title: 'Happy Birthday, my love. ♡',
       blocks: [
         { type: 'chapterTitle', text: 'Happy Birthday, my love. ♡', pos: { top: '8%', left: '8%', width: '84%' } },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '21%', left: '75%', width: '12%' }, rotate: 8 },
         {
           type: 'note',
           text: 'Un pequeño regalo hecho a mano para mi sol. Guardé aquí pedacitos de mi vida y todos los momentos que se volvieron nuestros.',
@@ -157,7 +158,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi bebe gordita mimida.jpg.jpeg',
-          caption: 'Gordita y mimida',
+          caption: 'Dormilona desde chiquita',
           frame: 'deckle',
           ratio: '4 / 3',
           pos: { top: '52%', left: '8%', width: '42%' },
@@ -166,9 +167,10 @@ export const album = {
         {
           type: 'note',
           text: 'Sigo siendo igual de dormilona y consentida cuando me tienes entre tus brazos, grandulón.',
-          pos: { top: '55%', left: '54%', width: '38%' },
+          pos: { top: '54%', left: '54%', width: '38%' },
           rotate: -2,
         },
+        { type: 'doodle', variant: 'moon', tone: 'sepia', pos: { top: '80%', left: '68%', width: '12%' }, rotate: -8 },
       ],
     },
 
@@ -256,7 +258,8 @@ export const album = {
           pos: { top: '51%', left: '52%', width: '40%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '66%', width: '15%' }, rotate: 14 },
+        { type: 'doodle', variant: 'stars', tone: 'gold', pos: { top: '77%', left: '52%', width: '11%' }, rotate: -6 },
+        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '68%', width: '15%' }, rotate: 14 },
       ],
     },
 
@@ -302,6 +305,7 @@ export const album = {
           pos: { top: '63%', left: '8%', width: '41%' },
           rotate: 2,
         },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '83%', left: '23%', width: '10%' }, rotate: -10 },
       ],
     },
     {
@@ -378,10 +382,11 @@ export const album = {
         {
           type: 'note',
           text: 'Bastó una sola mirada tuya, mi sol, para saber que mi mundo entero te pertenecía.',
-          pos: { top: '69%', left: '10%', width: '68%' },
+          pos: { top: '66%', left: '10%', width: '68%' },
           rotate: -1,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '67%', left: '81%', width: '13%' }, rotate: 14 },
+        { type: 'flower', variant: 'tulip', pos: { top: '65%', left: '81%', width: '13%' }, rotate: 14 },
+        { type: 'doodle', variant: 'sunMoon', tone: 'gold', pos: { top: '83%', left: '42%', width: '11%' }, rotate: 4 },
       ],
     },
     {
@@ -485,9 +490,10 @@ export const album = {
         {
           type: 'note',
           text: 'Despertar acurrucada contra tu pecho es mi lugar favorito del universo, grandulón. Te amo con locura.',
-          pos: { top: '52%', left: '55%', width: '38%' },
+          pos: { top: '51%', left: '55%', width: '38%' },
           rotate: -3,
         },
+        { type: 'doodle', variant: 'sun', tone: 'sepia', pos: { top: '79%', left: '68%', width: '12%' }, rotate: 12 },
       ],
     },
 
@@ -589,6 +595,7 @@ export const album = {
           rotate: 3,
         },
         { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '12%', width: '14%' }, rotate: -14 },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '77%', left: '72%', width: '11%' }, rotate: 8 },
       ],
     },
 
@@ -605,7 +612,7 @@ export const album = {
           src: '/photos/CORAZÓN/HER HEART.png',
           subtitle: 'COR MEUM · YOURS ALONE',
           caption: 'Safe in your sanctuary, still beating only for you. ♡',
-          pos: { top: '20%', left: '19%', width: '62%' },
+          pos: { top: '18%', left: '18%', width: '64%' },
           rotate: -1,
         },
       ],
@@ -641,9 +648,10 @@ export const album = {
               'My heart, in every sense of the word.',
             ],
             closing: 'Siempre tuya, mi sol,',
-            signature: 'tu Morphi',
+            signature: 'Tu Morphi',
           },
         },
+        { type: 'doodle', variant: 'stars', tone: 'wine', pos: { top: '75%', left: '16%', width: '12%' }, rotate: -8 },
         { type: 'flower', variant: 'tulip', pos: { top: '73%', left: '68%', width: '18%' }, rotate: -20 },
       ],
     },
@@ -662,9 +670,10 @@ export const album = {
           src: '/photos/07-mellizos/eco mellizos.jpg',
           caption: 'Two tiny new heartbeats… we are having twins, my love! ♡',
           header: ['TWIN A & B', '~ 2 MONTHS'],
-          pos: { top: '22%', left: '17%', width: '62%' },
+          pos: { top: '22%', left: '15%', width: '62%' },
           rotate: -2,
         },
+        { type: 'doodle', variant: 'moon', tone: 'gold', pos: { top: '53%', left: '80%', width: '11%' }, rotate: 10 },
         {
           type: 'note',
           text: 'Apenas llevan dos meses creciendo dentro de mí y ya amo a nuestros pequeñitos casi tanto como a su papá.',
@@ -709,15 +718,15 @@ export const album = {
         { type: 'chapterTitle', text: 'The best is yet to come.', pos: { top: '5%', left: '8%', width: '84%' } },
         {
           type: 'note',
-          text: 'Tantas fotografías que aún nos falta tomar, tantos cumpleaños por delante y cuatro manitas pequeñas por sostener, mi sol…',
-          pos: { top: '25%', left: '14%', width: '72%' },
+          text: 'Tantas fotografías que aún nos falta tomar, tantos cumpleaños por celebrar y cuatro manitas pequeñas por sostener, mi sol…',
+          pos: { top: '24%', left: '14%', width: '72%' },
           rotate: -2,
         },
         {
           type: 'envelope',
           label: 'One last letter…',
           seal: '♡',
-          pos: { top: '46%', left: '14%', width: '72%' },
+          pos: { top: '44%', left: '14%', width: '72%' },
           rotate: 2,
           letter: {
             title: 'One Last Letter…',
@@ -735,9 +744,10 @@ export const album = {
               'I love you more than I could ever fit into these pages.',
             ],
             closing: 'Con todo mi amor,',
-            signature: 'tu rojita. ♡',
+            signature: 'Tu rojita. ♡',
           },
         },
+        { type: 'doodle', variant: 'sunMoon', tone: 'wine', pos: { top: '79%', left: '43%', width: '13%' }, rotate: -4 },
       ],
     },
     {
@@ -749,9 +759,9 @@ export const album = {
           type: 'blank',
           title: 'To be continued…',
           text: 'For our future memories',
-          pos: { top: '8%', left: '8%', width: '84%' },
+          pos: { top: '7%', left: '8%', width: '84%' },
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '72%', width: '16%' }, rotate: 12 },
+        { type: 'flower', variant: 'tulip', pos: { top: '83%', left: '75%', width: '12%' }, rotate: 12 },
       ],
     },
   ],

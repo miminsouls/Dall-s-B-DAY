@@ -33,15 +33,14 @@ export default function MusicToggle({ config }) {
   }
 
   const label = on ? 'Silenciar música' : 'Activar música'
-  const hint = kind === 'musicbox' ? ' (provisional)' : ''
 
   return (
     <button
       className={`music-toggle ${on ? 'is-on' : ''}`}
       onClick={toggle}
       aria-pressed={on}
-      aria-label={label + hint}
-      title={label + hint}
+      aria-label={label}
+      title={label}
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" />
