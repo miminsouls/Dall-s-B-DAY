@@ -641,12 +641,12 @@
   outline-offset: -4px;
 }
 
-/* ───────── Esquinas para pasar página ───────── */
+/* ───────── Esquinas dobladas para pasar página ───────── */
 .corner-btn {
   position: absolute;
   bottom: 0;
-  width: 64px;
-  height: 64px;
+  width: 74px;
+  height: 74px;
   z-index: 12;
   border: none;
   background: transparent;
@@ -656,29 +656,60 @@
   content: '';
   position: absolute;
   bottom: 0;
-  width: 26px;
-  height: 26px;
+  width: 34px;
+  height: 34px;
   transition: width 0.25s ease, height 0.25s ease;
-  filter: drop-shadow(-2px -2px 3px rgba(40, 20, 5, 0.25));
+  filter: drop-shadow(-3px -3px 4px rgba(40, 20, 5, 0.28));
+}
+.corner-btn::after {
+  position: absolute;
+  bottom: 6px;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: rgba(122, 36, 48, 0.78);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.7;
+  pointer-events: none;
 }
 .corner-btn.next {
   right: 0;
 }
 .corner-btn.next::before {
   right: 0;
-  background: linear-gradient(315deg, rgba(20, 8, 8, 0.85) 0 50%, #d2c19c 50%, #efe4cc 100%);
+  background: linear-gradient(315deg, rgba(20, 8, 8, 0.85) 0 49%, #c9b58e 50%, #f6ecda 54%, #e2d2b0 100%);
+}
+.corner-btn.next::after {
+  content: '›';
+  right: 8px;
 }
 .corner-btn.prev {
   left: 0;
 }
 .corner-btn.prev::before {
   left: 0;
-  background: linear-gradient(45deg, rgba(20, 8, 8, 0.85) 0 50%, #d2c19c 50%, #efe4cc 100%);
+  background: linear-gradient(45deg, rgba(20, 8, 8, 0.85) 0 49%, #c9b58e 50%, #f6ecda 54%, #e2d2b0 100%);
+}
+.corner-btn.prev::after {
+  content: '‹';
+  left: 8px;
 }
 .corner-btn:hover::before,
 .corner-btn:focus-visible::before {
-  width: 46px;
-  height: 46px;
+  width: 54px;
+  height: 54px;
+}
+.corner-btn:hover::after,
+.corner-btn:focus-visible::after {
+  opacity: 1;
+}
+.corner-btn.next:hover::after,
+.corner-btn.next:focus-visible::after {
+  transform: translate(-3px, -3px);
+}
+.corner-btn.prev:hover::after,
+.corner-btn.prev:focus-visible::after {
+  transform: translate(3px, -3px);
 }
 .corner-btn:focus-visible {
   outline-offset: -4px;

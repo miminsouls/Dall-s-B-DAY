@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Page from './Page.jsx'
 import Cover from './Cover.jsx'
-import NavControls from './NavControls.jsx'
 import { useSwipe } from '../hooks/useMediaQuery.js'
 
 const FLIP_MS = 900
@@ -10,11 +9,10 @@ const UNCLASP_MS = 750
 
 /**
  * Lista plana de caras de página:
- * [guarda (reverso de la cubierta), portadilla, página 1, página 2, …]
- * En escritorio se agrupan en pliegos de dos.
+ * 24 páginas de contenido agrupadas en 12 dobles páginas (pliegos) en escritorio.
  */
 export function buildFlat(album) {
-  const flat = [{ kind: 'endpaper' }, { kind: 'title' }]
+  const flat = []
   album.pages.forEach((page, i) => flat.push({ kind: 'content', page, number: i + 1 }))
   if (flat.length % 2) flat.push({ kind: 'endpaper', back: true })
   return flat
@@ -23,7 +21,7 @@ export function buildFlat(album) {
 export default function Book({ album, single, reduced, onOpenLetter, modalOpen }) {
   const flat = useMemo(() => buildFlat(album), [album])
   const spreadCount = flat.length / 2
-  const lastPage = album.pages.length + 1 // índice plano de la última página con contenido
+  const lastPage = album.pages.length - 1 // índice plano de la última página con contenido
 
   const [stage, setStage] = useState('closed') // closed | unclasping | opening | open | closing
   const [pos, setPos] = useState(0)
@@ -37,7 +35,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
 
   const spread = Math.floor(pos / 2)
-  const page = Math.min(Math.max(1, pos), lastPage)
+  const page = Math.min(Math.max(0, pos), lastPage)
 
   /* ── Abrir / cerrar ───────────────────────────────────── */
   // 1) se presiona el broche y la correa se suelta, 2) la cubierta gira, 3) álbum abierto
@@ -96,7 +94,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
 
   const goPage = useCallback(
     (t) => {
-      if (t < 1 || t > lastPage || t === page) return
+      if (t < 0 || t > lastPage || t === page) return
       setSlide(t > page ? 'next' : 'prev')
       setPos(t)
     },
@@ -105,17 +103,10 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
 
   const next = useCallback(() => (single ? goPage(page + 1) : goSpread(spread + 1)), [single, goPage, goSpread, page, spread])
   const prev = useCallback(() => (single ? goPage(page - 1) : goSpread(spread - 1)), [single, goPage, goSpread, page, spread])
-  const first = useCallback(() => (single ? goPage(1) : goSpread(0)), [single, goPage, goSpread])
+  const first = useCallback(() => (single ? goPage(0) : goSpread(0)), [single, goPage, goSpread])
   const last = useCallback(() => (single ? goPage(lastPage) : goSpread(spreadCount - 1)), [single, goPage, goSpread, lastPage, spreadCount])
 
-  const chapterStart = (id) => flat.findIndex((f) => f.kind === 'content' && f.page.chapter === id)
-  const goChapter = (id) => {
-    const idx = chapterStart(id)
-    if (idx < 0) return
-    single ? goPage(idx) : goSpread(Math.floor(idx / 2))
-  }
-
-  const canPrev = single ? page > 1 : spread > 0
+  const canPrev = single ? page > 0 : spread > 0
   const canNext = single ? page < lastPage : spread < spreadCount - 1
 
   // Teclado
@@ -233,27 +224,14 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
 
         <Cover album={album} stage={stage} onOpen={openAlbum} buttonRef={coverBtnRef} />
 
-        {isOpen && !single && (
-          <div className="ribbons">
-            {album.chapters.map((c, i) => (
-              <button
-                key={c.id}
-                className={`ribbon ribbon-${i}`}
-                aria-current={c.id === currentChapter ? 'true' : undefined}
-                aria-label={`Ir al capítulo ${c.numeral}: ${c.title}`}
-                title={c.title}
-                onClick={() => goChapter(c.id)}
-              >
-                <span aria-hidden="true">{c.numeral}</span>
-              </button>
-            ))}
-          </div>
-        )}
-
         {isOpen && (
           <>
-            {canPrev && <button className="corner-btn prev" onClick={prev} aria-label="Página anterior" />}
-            {canNext && <button className="corner-btn next" onClick={next} aria-label="Página siguiente" />}
+            {canPrev && (
+              <button className="corner-btn prev" onClick={prev} aria-label="Doblar la esquina y volver a la página anterior" />
+            )}
+            {canNext && (
+              <button className="corner-btn next" onClick={next} aria-label="Doblar la esquina y pasar a la página siguiente" />
+            )}
           </>
         )}
 
@@ -268,21 +246,9 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
       </div>
 
       {isOpen && (
-        <>
-          <button className="close-album" onClick={closeAlbum}>
-            <span aria-hidden="true">✕</span> Cerrar álbum
-          </button>
-          <NavControls
-            chapters={album.chapters}
-            currentChapter={currentChapter}
-            status={status}
-            canPrev={canPrev}
-            canNext={canNext}
-            onPrev={prev}
-            onNext={next}
-            onChapter={goChapter}
-          />
-        </>
+        <button className="close-album" onClick={closeAlbum}>
+          <span aria-hidden="true">✕</span> Cerrar álbum
+        </button>
       )}
 
       <p className="sr-only" aria-live="polite">
