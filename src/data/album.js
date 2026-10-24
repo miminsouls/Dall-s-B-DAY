@@ -50,14 +50,17 @@ export const album = {
       title: 'Happy Birthday, my love. ♡',
       blocks: [
         { type: 'chapterTitle', text: 'Happy Birthday, my love. ♡', pos: { top: '8%', left: '8%', width: '84%' } },
+        { type: 'doodle', variant: 'sparkle', tone: 'gold', pos: { top: '21%', left: '13%', width: '10%' }, rotate: -6 },
         { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '21%', left: '75%', width: '12%' }, rotate: 8 },
         {
           type: 'note',
           text: 'Un pequeño regalo hecho a mano para mi sol. Guardé aquí pedacitos de mi vida y todos los momentos que se volvieron nuestros.',
-          pos: { top: '34%', left: '13%', width: '74%' },
+          pos: { top: '31%', left: '13%', width: '74%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '63%', left: '38%', width: '22%' }, rotate: 10 },
+        { type: 'ephemera', variant: 'lace', pos: { top: '55%', left: '26%', width: '48%' }, rotate: -1 },
+        { type: 'flower', variant: 'tulip', pos: { top: '66%', left: '40%', width: '20%' }, rotate: 10 },
+        { type: 'ephemera', variant: 'waxSeal', emblem: 'M&D', tone: 'wine', pos: { top: '75%', left: '17%', width: '9.5%' }, rotate: -8 },
       ],
     },
     {
@@ -71,6 +74,7 @@ export const album = {
           pos: { top: '10%', left: '14%', width: '72%' },
           rotate: 2,
         },
+        { type: 'doodle', variant: 'arrow', tone: 'wine', pos: { top: '25%', left: '16%', width: '16%' }, rotate: 22 },
         {
           type: 'envelope',
           label: 'Open me, handsome…',
@@ -89,6 +93,7 @@ export const album = {
             signature: 'your Morphi',
           },
         },
+        { type: 'ephemera', variant: 'stamp', label: 'OCTOBER', sub: '23 · M&D', motif: 'sun', pos: { top: '74%', left: '14%', width: '13%' }, rotate: -6 },
         { type: 'flower', variant: 'lavender', pos: { top: '74%', left: '68%', width: '18%' }, rotate: -18 },
       ],
     },
@@ -120,6 +125,7 @@ export const album = {
           pos: { top: '22%', left: '54%', width: '36%' },
           rotate: 4,
         },
+        { type: 'flower', variant: 'wildflower', pos: { top: '57%', left: '3%', width: '11%' }, rotate: -10 },
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi  bebe dormida.jpg.jpeg',
@@ -129,7 +135,8 @@ export const album = {
           pos: { top: '57%', left: '16%', width: '44%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'rose', pos: { top: '62%', left: '68%', width: '18%' }, rotate: 16 },
+        { type: 'flower', variant: 'rose', pos: { top: '60%', left: '68%', width: '17%' }, rotate: 16 },
+        { type: 'doodle', variant: 'sparkle', tone: 'gold', pos: { top: '81%', left: '70%', width: '10%' }, rotate: 6 },
       ],
     },
     {
@@ -155,13 +162,14 @@ export const album = {
           pos: { top: '10%', left: '54%', width: '37%' },
           rotate: 4,
         },
+        { type: 'ephemera', variant: 'scrap', kind: 'music', pos: { top: '43%', left: '13%', width: '26%' }, rotate: -3 },
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi bebe gordita mimida.jpg.jpeg',
           caption: 'Dormilona desde chiquita',
           frame: 'deckle',
           ratio: '4 / 3',
-          pos: { top: '52%', left: '8%', width: '42%' },
+          pos: { top: '53%', left: '8%', width: '42%' },
           rotate: 3,
         },
         {
@@ -170,7 +178,8 @@ export const album = {
           pos: { top: '54%', left: '54%', width: '38%' },
           rotate: -2,
         },
-        { type: 'doodle', variant: 'moon', tone: 'sepia', pos: { top: '80%', left: '68%', width: '12%' }, rotate: -8 },
+        { type: 'ephemera', variant: 'bow', tone: 'blush', pos: { top: '79%', left: '54%', width: '12%' }, rotate: -6 },
+        { type: 'doodle', variant: 'moon', tone: 'sepia', pos: { top: '79%', left: '72%', width: '12%' }, rotate: -8 },
       ],
     },
 
@@ -218,6 +227,7 @@ export const album = {
           pos: { top: '53%', left: '54%', width: '36%' },
           rotate: -3,
         },
+        { type: 'flower', variant: 'wildflower', pos: { top: '83%', left: '44%', width: '11%' }, rotate: -6 },
       ],
     },
     {
@@ -255,9 +265,10 @@ export const album = {
         {
           type: 'note',
           text: 'Every wish I made on dandelion seeds was secretly leading me to you, my darling.',
-          pos: { top: '51%', left: '52%', width: '40%' },
+          pos: { top: '49%', left: '52%', width: '40%' },
           rotate: -2,
         },
+        { type: 'doodle', variant: 'underline', tone: 'sepia', pos: { top: '71.5%', left: '56%', width: '30%' }, rotate: -2 },
         { type: 'doodle', variant: 'stars', tone: 'gold', pos: { top: '77%', left: '52%', width: '11%' }, rotate: -6 },
         { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '68%', width: '15%' }, rotate: 14 },
       ],
@@ -296,7 +307,7 @@ export const album = {
           caption: 'Pintando sueños despierta',
           frame: 'tape',
           ratio: '1 / 1',
-          pos: { top: '56%', left: '55%', width: '34%' },
+          pos: { top: '55%', left: '55%', width: '34%' },
           rotate: -3,
         },
         {
@@ -305,7 +316,9 @@ export const album = {
           pos: { top: '63%', left: '8%', width: '41%' },
           rotate: 2,
         },
-        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '83%', left: '23%', width: '10%' }, rotate: -10 },
+        { type: 'ephemera', variant: 'bow', tone: 'blush', pos: { top: '83%', left: '10%', width: '12%' }, rotate: -8 },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '83%', left: '27%', width: '10%' }, rotate: -10 },
+        { type: 'ephemera', variant: 'lace', pos: { top: '86%', left: '55%', width: '34%' }, rotate: -2 },
       ],
     },
     {
@@ -349,6 +362,7 @@ export const album = {
           pos: { top: '53%', left: '54%', width: '36%' },
           rotate: -3,
         },
+        { type: 'ephemera', variant: 'bow', tone: 'wine', pos: { top: '84%', left: '43%', width: '13%' }, rotate: -4 },
       ],
     },
 
@@ -382,11 +396,13 @@ export const album = {
         {
           type: 'note',
           text: 'Bastó una sola mirada tuya, mi sol, para saber que mi mundo entero te pertenecía.',
-          pos: { top: '66%', left: '10%', width: '68%' },
+          pos: { top: '65%', left: '10%', width: '68%' },
           rotate: -1,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '65%', left: '81%', width: '13%' }, rotate: 14 },
-        { type: 'doodle', variant: 'sunMoon', tone: 'gold', pos: { top: '83%', left: '42%', width: '11%' }, rotate: 4 },
+        { type: 'flower', variant: 'tulip', pos: { top: '64%', left: '81%', width: '13%' }, rotate: 14 },
+        { type: 'ephemera', variant: 'waxSeal', emblem: 'M&D', tone: 'gold', pos: { top: '82%', left: '16%', width: '8.5%' }, rotate: -6 },
+        { type: 'doodle', variant: 'sunMoon', tone: 'gold', pos: { top: '82%', left: '42%', width: '11%' }, rotate: 4 },
+        { type: 'doodle', variant: 'underline', tone: 'gold', pos: { top: '84%', left: '56%', width: '24%' }, rotate: -2 },
       ],
     },
     {
@@ -412,6 +428,7 @@ export const album = {
           pos: { top: '10%', left: '54%', width: '37%' },
           rotate: 3,
         },
+        { type: 'flower', variant: 'tulipBud', pos: { top: '56%', left: '3%', width: '10%' }, rotate: -14 },
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine hug.jpg.jpeg',
@@ -421,7 +438,8 @@ export const album = {
           pos: { top: '53%', left: '16%', width: '54%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'rose', pos: { top: '60%', left: '74%', width: '16%' }, rotate: 18 },
+        { type: 'flower', variant: 'rose', pos: { top: '56%', left: '74%', width: '16%' }, rotate: 18 },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '78%', left: '75%', width: '11%' }, rotate: 10 },
       ],
     },
 
@@ -461,7 +479,9 @@ export const album = {
           pos: { top: '58%', left: '53%', width: '37%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '66%', left: '14%', width: '18%' }, rotate: -12 },
+        { type: 'flower', variant: 'tulip', pos: { top: '65%', left: '11%', width: '17%' }, rotate: -12 },
+        { type: 'ephemera', variant: 'bow', tone: 'wine', pos: { top: '63%', left: '32%', width: '13%' }, rotate: 8 },
+        { type: 'doodle', variant: 'sun', tone: 'wine', pos: { top: '76%', left: '33%', width: '11%' }, rotate: -6 },
       ],
     },
     {
@@ -469,6 +489,7 @@ export const album = {
       spread: 6,
       folder: '05-morphine-dalliance',
       blocks: [
+        { type: 'doodle', variant: 'stars', tone: 'gold', pos: { top: '16%', left: '3%', width: '10%' }, rotate: -8 },
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine in bed.jpeg',
@@ -478,6 +499,7 @@ export const album = {
           pos: { top: '9%', left: '15%', width: '58%' },
           rotate: -2,
         },
+        { type: 'flower', variant: 'tulipBud', pos: { top: '12%', left: '77%', width: '12%' }, rotate: 14 },
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine morning after.jpg.jpeg',
@@ -493,7 +515,8 @@ export const album = {
           pos: { top: '51%', left: '55%', width: '38%' },
           rotate: -3,
         },
-        { type: 'doodle', variant: 'sun', tone: 'sepia', pos: { top: '79%', left: '68%', width: '12%' }, rotate: 12 },
+        { type: 'ephemera', variant: 'waxSeal', emblem: 'SOL', tone: 'wine', pos: { top: '79%', left: '56%', width: '8.5%' }, rotate: -8 },
+        { type: 'doodle', variant: 'sun', tone: 'sepia', pos: { top: '78%', left: '70%', width: '12%' }, rotate: 12 },
       ],
     },
 
@@ -542,6 +565,7 @@ export const album = {
           pos: { top: '56%', left: '55%', width: '35%' },
           rotate: -3,
         },
+        { type: 'ephemera', variant: 'stamp', label: 'NIPPON', sub: 'KYOTO', motif: 'pagoda', pos: { top: '83%', left: '22%', width: '11%' }, rotate: -5 },
       ],
     },
     {
@@ -595,7 +619,8 @@ export const album = {
           rotate: 3,
         },
         { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '12%', width: '14%' }, rotate: -14 },
-        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '77%', left: '72%', width: '11%' }, rotate: 8 },
+        { type: 'doodle', variant: 'sun', tone: 'gold', pos: { top: '77%', left: '68%', width: '11%' }, rotate: 8 },
+        { type: 'ephemera', variant: 'stamp', label: 'BALI', sub: 'PARADISE', motif: 'sun', pos: { top: '75%', left: '82%', width: '11%' }, rotate: 6 },
       ],
     },
 
@@ -607,6 +632,8 @@ export const album = {
       spread: 8,
       blocks: [
         { type: 'chapterTitle', text: 'The Gift of My Heart', pos: { top: '4%', left: '8%', width: '84%' } },
+        { type: 'flower', variant: 'tulipBud', pos: { top: '34%', left: '4%', width: '11%' }, rotate: -12 },
+        { type: 'doodle', variant: 'sparkle', tone: 'gold', pos: { top: '66%', left: '5%', width: '10%' }, rotate: -6 },
         {
           type: 'heartRelic',
           src: '/photos/CORAZÓN/HER HEART.png',
@@ -615,6 +642,8 @@ export const album = {
           pos: { top: '18%', left: '18%', width: '64%' },
           rotate: -1,
         },
+        { type: 'ephemera', variant: 'waxSeal', emblem: 'COR', tone: 'gold', pos: { top: '24%', left: '85%', width: '9%' }, rotate: 8 },
+        { type: 'flower', variant: 'fern', pos: { top: '54%', left: '84%', width: '11%' }, rotate: 14 },
       ],
     },
     {
@@ -651,7 +680,8 @@ export const album = {
             signature: 'Tu Morphi',
           },
         },
-        { type: 'doodle', variant: 'stars', tone: 'wine', pos: { top: '75%', left: '16%', width: '12%' }, rotate: -8 },
+        { type: 'doodle', variant: 'stars', tone: 'wine', pos: { top: '75%', left: '14%', width: '11%' }, rotate: -8 },
+        { type: 'ephemera', variant: 'lace', pos: { top: '76%', left: '30%', width: '34%' }, rotate: 1 },
         { type: 'flower', variant: 'tulip', pos: { top: '73%', left: '68%', width: '18%' }, rotate: -20 },
       ],
     },
@@ -665,6 +695,7 @@ export const album = {
       folder: '07-mellizos',
       blocks: [
         { type: 'chapterTitle', text: 'Our tiny new secret…', pos: { top: '4%', left: '8%', width: '84%' } },
+        { type: 'ephemera', variant: 'bow', tone: 'blush', pos: { top: '52%', left: '3%', width: '10%' }, rotate: -10 },
         {
           type: 'ultrasound',
           src: '/photos/07-mellizos/eco mellizos.jpg',
@@ -673,7 +704,8 @@ export const album = {
           pos: { top: '22%', left: '15%', width: '62%' },
           rotate: -2,
         },
-        { type: 'doodle', variant: 'moon', tone: 'gold', pos: { top: '53%', left: '80%', width: '11%' }, rotate: 10 },
+        { type: 'doodle', variant: 'stars', tone: 'gold', pos: { top: '24%', left: '80%', width: '11%' }, rotate: -6 },
+        { type: 'doodle', variant: 'moon', tone: 'gold', pos: { top: '52%', left: '80%', width: '11%' }, rotate: 10 },
         {
           type: 'note',
           text: 'Apenas llevan dos meses creciendo dentro de mí y ya amo a nuestros pequeñitos casi tanto como a su papá.',
@@ -697,13 +729,16 @@ export const album = {
           pos: { top: '8%', left: '7%', width: '44%' },
           rotate: -2,
         },
+        { type: 'ephemera', variant: 'lace', pos: { top: '72%', left: '10%', width: '38%' }, rotate: -2 },
+        { type: 'doodle', variant: 'moon', tone: 'sepia', pos: { top: '80%', left: '24%', width: '11%' }, rotate: -8 },
         {
           type: 'note',
           text: 'Tus manos enormes sobre mi vientre, hablándoles bajito a nuestros mellizos… vas a ser el papá más dulce de toda la eternidad, mi grandulón.',
           pos: { top: '14%', left: '55%', width: '38%' },
           rotate: 2,
         },
-        { type: 'flower', variant: 'tulip', pos: { top: '62%', left: '64%', width: '18%' }, rotate: -12 },
+        { type: 'flower', variant: 'tulip', pos: { top: '62%', left: '62%', width: '18%' }, rotate: -12 },
+        { type: 'doodle', variant: 'sparkle', tone: 'gold', pos: { top: '64%', left: '82%', width: '10%' }, rotate: 8 },
       ],
     },
 
@@ -747,7 +782,9 @@ export const album = {
             signature: 'Tu rojita. ♡',
           },
         },
-        { type: 'doodle', variant: 'sunMoon', tone: 'wine', pos: { top: '79%', left: '43%', width: '13%' }, rotate: -4 },
+        { type: 'flower', variant: 'tulipBud', pos: { top: '79%', left: '16%', width: '10%' }, rotate: -14 },
+        { type: 'doodle', variant: 'sunMoon', tone: 'wine', pos: { top: '80%', left: '43%', width: '13%' }, rotate: -4 },
+        { type: 'ephemera', variant: 'waxSeal', emblem: 'M&D', tone: 'gold', pos: { top: '80%', left: '72%', width: '9%' }, rotate: 8 },
       ],
     },
     {
@@ -761,6 +798,7 @@ export const album = {
           text: 'For our future memories',
           pos: { top: '7%', left: '8%', width: '84%' },
         },
+        { type: 'doodle', variant: 'stars', tone: 'gold', pos: { top: '84%', left: '15%', width: '11%' }, rotate: -6 },
         { type: 'flower', variant: 'tulip', pos: { top: '83%', left: '75%', width: '12%' }, rotate: 12 },
       ],
     },

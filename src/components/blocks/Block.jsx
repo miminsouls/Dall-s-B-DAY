@@ -7,6 +7,7 @@ import ChapterTitle from './ChapterTitle.jsx'
 import BlankPage from './BlankPage.jsx'
 import HeartRelic from './HeartRelic.jsx'
 import Doodle from './Doodle.jsx'
+import Ephemera from './Ephemera.jsx'
 
 const COMPONENTS = {
   photo: Photo,
@@ -18,6 +19,7 @@ const COMPONENTS = {
   blank: BlankPage,
   heartRelic: HeartRelic,
   doodle: Doodle,
+  ephemera: Ephemera,
 }
 
 /** Posiciona un bloque dentro de la página según `pos` y `rotate`. */

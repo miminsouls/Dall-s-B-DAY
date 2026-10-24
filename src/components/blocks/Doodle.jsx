@@ -170,11 +170,68 @@ function SunMoonDoodle() {
   )
 }
 
+function ArrowDoodle() {
+  return (
+    <svg viewBox="0 0 110 54" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        {/* Trazo curvo con pequeño bucle hecho a mano */}
+        <path
+          d="M8 38 C26 42, 44 14, 34 12 C25 10, 26 30, 52 32 C72 34, 86 26, 98 20"
+          strokeWidth="1.45"
+        />
+        {/* Punta de flecha dibujada a pluma */}
+        <path d="M88 16 C93 18, 97 19, 100 19 C96 23, 94 27, 92 31" strokeWidth="1.45" />
+      </g>
+      <circle cx="5" cy="37" r="1.2" fill="currentColor" opacity="0.7" />
+    </svg>
+  )
+}
+
+function UnderlineDoodle() {
+  return (
+    <svg viewBox="0 0 160 32" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 14 C46 8, 114 20, 154 12" strokeWidth="1.35" />
+        <path d="M22 20 C58 16, 102 24, 138 18" strokeWidth="0.95" opacity="0.75" />
+        <path d="M80 9 L80 23 M75 16 L85 16" strokeWidth="0.9" opacity="0.7" />
+      </g>
+      <circle cx="64" cy="16" r="1.1" fill="currentColor" opacity="0.65" />
+      <circle cx="96" cy="16" r="1.1" fill="currentColor" opacity="0.65" />
+    </svg>
+  )
+}
+
+function SparkleDoodle() {
+  return (
+    <svg viewBox="0 0 76 76" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+        <path
+          d="M38 10 C38 28, 38 28, 56 28 C38 28, 38 28, 38 46 C38 28, 38 28, 20 28 C38 28, 38 28, 38 10 Z"
+          strokeWidth="1.3"
+          fill="currentColor"
+          fillOpacity="0.08"
+        />
+        <path
+          d="M56 44 C56 52, 56 52, 64 52 C56 52, 56 52, 56 60 C56 52, 56 52, 48 52 C56 52, 56 52, 56 44 Z"
+          strokeWidth="1.1"
+        />
+        <path d="M22 48 L22 56 M18 52 L26 52" strokeWidth="1" opacity="0.8" />
+      </g>
+      <circle cx="58" cy="16" r="1.2" fill="currentColor" opacity="0.65" />
+      <circle cx="18" cy="20" r="1" fill="currentColor" opacity="0.6" />
+      <circle cx="36" cy="62" r="1.1" fill="currentColor" opacity="0.65" />
+    </svg>
+  )
+}
+
 const VARIANTS = {
   sun: SunDoodle,
   moon: MoonDoodle,
   stars: StarsDoodle,
   sunMoon: SunMoonDoodle,
+  arrow: ArrowDoodle,
+  underline: UnderlineDoodle,
+  sparkle: SparkleDoodle,
 }
 
 export default function Doodle({ variant = 'sun', tone = 'sepia' }) {

@@ -133,7 +133,66 @@ function Tulip() {
   )
 }
 
-const VARIANTS = { rose: Rose, lavender: Lavender, fern: Fern, tulip: Tulip }
+function Wildflower() {
+  const petals = [0, 60, 120, 180, 240, 300]
+  return (
+    <svg viewBox="0 0 85 115" aria-hidden="true" focusable="false">
+      {/* Tallos finos ramificados */}
+      <g fill="none" stroke="#6d7a4e" strokeLinecap="round">
+        <path d="M42 110 C40 82, 44 54, 34 26" strokeWidth="1.5" />
+        <path d="M41 84 C50 70, 56 56, 60 40" strokeWidth="1.2" />
+        <path d="M40 94 C30 82, 24 68, 22 54" strokeWidth="1.1" />
+      </g>
+      {/* Hojitas silvestres */}
+      <g fill="#758355" opacity=".7">
+        <ellipse cx="34" cy="72" rx="7" ry="2.6" transform="rotate(-32 34 72)" />
+        <ellipse cx="49" cy="78" rx="6.5" ry="2.4" transform="rotate(28 49 78)" />
+      </g>
+      {/* Florecita principal (manzanilla/nomeolvides prensada) */}
+      <g transform="translate(34 24)">
+        {petals.map((a) => (
+          <ellipse key={a} cx="0" cy="-6.5" rx="3.4" ry="5.8" fill="#dfd2b5" stroke="#9e8a66" strokeWidth=".4" opacity=".88" transform={`rotate(${a})`} />
+        ))}
+        <circle r="3.4" fill="#c49a4e" />
+      </g>
+      {/* Florecita secundaria derecha */}
+      <g transform="translate(60 38) scale(0.78)">
+        {petals.map((a) => (
+          <ellipse key={a} cx="0" cy="-6" rx="3.2" ry="5.4" fill="#c58b93" opacity=".78" transform={`rotate(${a})`} />
+        ))}
+        <circle r="3" fill="#9c6e34" />
+      </g>
+      {/* Capullo izquierdo */}
+      <g transform="translate(22 52) rotate(-22)">
+        <ellipse cx="0" cy="-3" rx="3.2" ry="4.8" fill="#b86b77" opacity=".75" />
+        <path d="M-3 0 Q0 3 3 0" stroke="#5e6b40" strokeWidth="1.1" fill="none" />
+      </g>
+    </svg>
+  )
+}
+
+function TulipBud() {
+  return (
+    <svg viewBox="0 0 75 120" aria-hidden="true" focusable="false">
+      <path d="M34 114 C32 86, 36 58, 43 34" stroke="#667449" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <path d="M34 104 C24 84, 24 62, 31 46 C31 64, 32 82, 35 98 Z" fill="#728052" opacity=".7" />
+      <g transform="translate(44 30) rotate(14)">
+        <path d="M0 -16 C7 -12, 8 0, 0 10 C-8 0, -7 -12, 0 -16 Z" fill="#8f3241" opacity=".78" />
+        <path d="M-1 10 C-10 7, -12 -5, -5 -14 C-1 -9, 0 -1, -1 10 Z" fill="#b6626f" opacity=".8" />
+        <path d="M1 10 C10 7, 12 -5, 5 -14 C1 -9, 0 -1, 1 10 Z" fill="#a44d5b" opacity=".75" />
+      </g>
+    </svg>
+  )
+}
+
+const VARIANTS = {
+  rose: Rose,
+  lavender: Lavender,
+  fern: Fern,
+  tulip: Tulip,
+  wildflower: Wildflower,
+  tulipBud: TulipBud,
+}
 
 export default function PressedFlower({ variant = 'rose' }) {
   const Flower = VARIANTS[variant] ?? Rose

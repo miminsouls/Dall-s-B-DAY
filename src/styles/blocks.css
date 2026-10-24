@@ -511,6 +511,116 @@
   color: #7b2c3b;
 }
 
+/* ───────── Efímera de scrapbook (lazos, encaje, estampillas, lacre, recortes) ───────── */
+.ephemera {
+  pointer-events: none;
+}
+.ephemera svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ephemera-bow svg {
+  filter: drop-shadow(0 0.4cqw 0.7cqw rgba(40, 15, 15, 0.24));
+}
+.ephemera-lace svg {
+  filter: drop-shadow(0 0.3cqw 0.5cqw rgba(50, 30, 10, 0.16));
+  opacity: 0.9;
+}
+.ephemera-stamp {
+  position: relative;
+  padding: 1.1cqw;
+  background: #f5ecda;
+  color: #6e2633;
+  -webkit-mask:
+    radial-gradient(circle 0.55cqw at 50% 0, transparent 96%, #000) top / 1.8cqw 51% repeat-x,
+    radial-gradient(circle 0.55cqw at 50% 100%, transparent 96%, #000) bottom / 1.8cqw 51% repeat-x;
+  mask:
+    radial-gradient(circle 0.55cqw at 50% 0, transparent 96%, #000) top / 1.8cqw 51% repeat-x,
+    radial-gradient(circle 0.55cqw at 50% 100%, transparent 96%, #000) bottom / 1.8cqw 51% repeat-x;
+  filter: drop-shadow(0 0.4cqw 0.8cqw rgba(40, 20, 10, 0.22));
+}
+.stamp-inner {
+  border: 1px solid currentColor;
+  padding: 0.8cqw 0.6cqw 0.6cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(122, 38, 51, 0.05);
+}
+.stamp-top {
+  font-family: var(--font-title);
+  font-size: 1.55cqw;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+.stamp-art {
+  width: 78%;
+  margin: 0.3cqw 0;
+}
+.stamp-sub {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.65cqw;
+  line-height: 1;
+}
+.stamp-postmark {
+  position: absolute;
+  width: 125%;
+  left: 34%;
+  bottom: -10%;
+  color: #3e2b22;
+  pointer-events: none;
+}
+.ephemera-seal {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 47% 53% 51% 49% / 52% 48% 53% 47%;
+  display: grid;
+  place-items: center;
+  box-shadow:
+    0 0.45cqw 0.9cqw rgba(25, 10, 8, 0.34),
+    inset 0 0.3cqw 0.5cqw rgba(255, 225, 195, 0.22),
+    inset 0 -0.4cqw 0.6cqw rgba(0, 0, 0, 0.35);
+}
+.ephemera-seal.seal-wine {
+  background: radial-gradient(circle at 35% 30%, #9e3442, #721925 58%, #470c14);
+  color: rgba(245, 215, 185, 0.82);
+}
+.ephemera-seal.seal-gold {
+  background: radial-gradient(circle at 35% 30%, #dec07d, #a98340 58%, #6d5020);
+  color: rgba(55, 32, 12, 0.82);
+}
+.seal-ring {
+  width: 74%;
+  height: 74%;
+  border-radius: 50%;
+  border: 1px dashed currentColor;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-title);
+  font-size: 2.1cqw;
+  letter-spacing: 0.04em;
+}
+.ephemera-scrap {
+  background:
+    var(--noise),
+    linear-gradient(165deg, #efe2c6, #dfd0ae);
+  background-size: 140px, auto;
+  background-blend-mode: soft-light, normal;
+  padding: 0.8cqw 1.4cqw;
+  border: 1px solid rgba(130, 100, 65, 0.32);
+  box-shadow: 0 0.4cqw 0.9cqw rgba(40, 20, 10, 0.18);
+}
+.scrap-text {
+  display: block;
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 1.9cqw;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .envelope,
   .env-flap,
