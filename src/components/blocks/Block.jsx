@@ -5,6 +5,7 @@ import Envelope from './Envelope.jsx'
 import Ultrasound from './Ultrasound.jsx'
 import ChapterTitle from './ChapterTitle.jsx'
 import BlankPage from './BlankPage.jsx'
+import HeartRelic from './HeartRelic.jsx'
 
 const COMPONENTS = {
   photo: Photo,
@@ -14,6 +15,7 @@ const COMPONENTS = {
   ultrasound: Ultrasound,
   chapterTitle: ChapterTitle,
   blank: BlankPage,
+  heartRelic: HeartRelic,
 }
 
 /** Posiciona un bloque dentro de la página según `pos` y `rotate`. */

@@ -14,12 +14,21 @@ export function Placeholder({ label }) {
   )
 }
 
-export default function Photo({ src, alt, caption, placeholder, frame = 'corners', ratio = '4 / 5' }) {
+export default function Photo({ src, alt, caption, placeholder, frame = 'corners', ratio = '4 / 5', fit }) {
   return (
     <figure className={`photo frame-${frame}`}>
       <div className="photo-inner" style={{ aspectRatio: ratio }}>
         <div className="photo-image">
-          {src ? <img src={withBase(src)} alt={alt || caption || ''} loading="lazy" /> : <Placeholder label={placeholder} />}
+          {src ? (
+            <img
+              src={withBase(src)}
+              alt={alt || caption || ''}
+              loading="lazy"
+              style={fit ? { objectPosition: fit } : undefined}
+            />
+          ) : (
+            <Placeholder label={placeholder} />
+          )}
         </div>
         {frame === 'corners' &&
           ['tl', 'tr', 'bl', 'br'].map((c) => <span key={c} className={`photo-corner ${c}`} aria-hidden="true" />)}
@@ -29,6 +38,7 @@ export default function Photo({ src, alt, caption, placeholder, frame = 'corners
             <span className="tape b" aria-hidden="true" />
           </>
         )}
+        {frame === 'polaroid' && <span className="tape polaroid-tape" aria-hidden="true" />}
       </div>
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
