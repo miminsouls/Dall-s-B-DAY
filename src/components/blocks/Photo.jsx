@@ -1,3 +1,5 @@
+import { withBase } from '../../audio/engine.js'
+
 export function Placeholder({ label }) {
   return (
     <div className="placeholder" role="img" aria-label={`Imagen provisional: ${label || 'sin descripción'}`}>
@@ -17,7 +19,7 @@ export default function Photo({ src, alt, caption, placeholder, frame = 'corners
     <figure className={`photo frame-${frame}`}>
       <div className="photo-inner" style={{ aspectRatio: ratio }}>
         <div className="photo-image">
-          {src ? <img src={src} alt={alt || caption || ''} loading="lazy" /> : <Placeholder label={placeholder} />}
+          {src ? <img src={withBase(src)} alt={alt || caption || ''} loading="lazy" /> : <Placeholder label={placeholder} />}
         </div>
         {frame === 'corners' &&
           ['tl', 'tr', 'bl', 'br'].map((c) => <span key={c} className={`photo-corner ${c}`} aria-hidden="true" />)}

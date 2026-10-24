@@ -1,3 +1,5 @@
+import { withBase } from '../../audio/engine.js'
+
 export default function Ultrasound({ src, caption, header = [] }) {
   return (
     <figure className="ultrasound">
@@ -8,7 +10,7 @@ export default function Ultrasound({ src, caption, header = [] }) {
         </div>
         <div className="us-screen">
           {src ? (
-            <img src={src} alt={caption || 'Ecografía'} loading="lazy" />
+            <img src={withBase(src)} alt={caption || 'Ecografía'} loading="lazy" />
           ) : (
             <div className="us-fan" role="img" aria-label="Ecografía provisional">
               <span className="us-tag">Ecografía provisional</span>

@@ -4,8 +4,16 @@
  *  2) Si no, y fallbackMusicBox está activo, genera una "caja de música"
  *     provisional con Web Audio (sin archivos ni derechos de autor).
  */
+export function withBase(path) {
+  if (!path || /^(https?:|data:|blob:)/.test(path)) return path
+  const base = import.meta.env.BASE_URL || '/'
+  if (path.startsWith(base)) return path
+  return `${base.replace(/\/$/, '')}/${path.replace(/^\//, '')}`
+}
+
 export async function createAudioEngine({ src, volume = 0.35, fallbackMusicBox = true }) {
-  if (src && (await fileExists(src))) return createFileEngine(src, volume)
+  const resolvedSrc = withBase(src)
+  if (resolvedSrc && (await fileExists(resolvedSrc))) return createFileEngine(resolvedSrc, volume)
   if (fallbackMusicBox) return createMusicBox(volume)
   return null
 }
