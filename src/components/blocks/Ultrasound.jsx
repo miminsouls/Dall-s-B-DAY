@@ -1,8 +1,30 @@
-import { withBase } from '../../audio/engine.js'
+import { playSfx, withBase } from '../../audio/engine.js'
 
-export default function Ultrasound({ src, caption, header = [], ratio, fit }) {
+export default function Ultrasound({ src, caption, header = [], ratio, fit, rotate, onOpenPhoto }) {
+  const handleInspect = () => {
+    if (!src || !onOpenPhoto) return
+    playSfx('envelope')
+    onOpenPhoto({ type: 'ultrasound', src, caption, header, ratio, fit, rotate })
+  }
+
   return (
-    <figure className="ultrasound">
+    <figure
+      className={`ultrasound ${src && onOpenPhoto ? 'block-interactive is-zoomable' : ''}`}
+      onClick={src && onOpenPhoto ? handleInspect : undefined}
+      onKeyDown={
+        src && onOpenPhoto
+          ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleInspect()
+              }
+            }
+          : undefined
+      }
+      tabIndex={src && onOpenPhoto ? 0 : undefined}
+      role={src && onOpenPhoto ? 'button' : undefined}
+      aria-label={src && onOpenPhoto ? `Ampliar ecografía: ${caption || 'mellizos'}` : undefined}
+    >
       <div className="us-print">
         <div className="us-header" aria-hidden="true">
           <span>{header[0]}</span>

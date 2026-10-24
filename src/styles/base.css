@@ -107,6 +107,47 @@ figure {
   100% { opacity: 1; }
 }
 
+/* ───────── Motas de polvo dorado (exterior) ───────── */
+.dust-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.dust-mote {
+  position: absolute;
+  left: var(--dx, 50%);
+  top: var(--dy, 50%);
+  width: var(--ds, 3px);
+  height: var(--ds, 3px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 223, 173, 0.95) 0%, rgba(201, 164, 99, 0.45) 55%, transparent 100%);
+  box-shadow: 0 0 6px rgba(232, 211, 157, 0.55);
+  opacity: 0;
+  animation: dust-float var(--dd, 16s) ease-in-out var(--dl, 0s) infinite;
+}
+@keyframes dust-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.75);
+  }
+  25% {
+    opacity: 0.52;
+  }
+  55% {
+    opacity: 0.28;
+    transform: translate3d(8px, -14px, 0) scale(1.05);
+  }
+  80% {
+    opacity: 0.48;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-6px, -28px, 0) scale(0.8);
+  }
+}
+
 /* ───────── Barra superior ───────── */
 .topbar {
   position: fixed;
@@ -355,6 +396,112 @@ figure {
   to { opacity: 1; transform: none; }
 }
 
+/* ───────── Pétalos de tulipán en la carta final ───────── */
+.tulip-petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 62;
+}
+.tulip-petal {
+  position: absolute;
+  top: -40px;
+  left: var(--p-left, 15%);
+  width: 24px;
+  height: 34px;
+  opacity: 0;
+  filter: drop-shadow(0 4px 8px rgba(20, 6, 8, 0.35));
+  animation: petal-fall var(--p-dur, 5s) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--p-delay, 0s) 1 forwards;
+}
+@keyframes petal-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0) rotate(var(--p-rot, 0deg)) scale(var(--p-scale, 0.9));
+  }
+  14% {
+    opacity: 0.88;
+  }
+  60% {
+    opacity: 0.82;
+    transform: translate3d(var(--p-drift, 24px), 52dvh, 0) rotate(calc(var(--p-rot, 0deg) + 38deg)) scale(var(--p-scale, 0.9));
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--p-drift, 24px) * 1.4), 96dvh, 0) rotate(calc(var(--p-rot, 0deg) + 76deg)) scale(var(--p-scale, 0.9));
+  }
+}
+
+/* ───────── Fotografía / Ecografía ampliada ───────── */
+.photo-modal {
+  position: relative;
+  width: min(420px, 86vw);
+  max-height: 88dvh;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: photo-zoom-in 0.38s cubic-bezier(0.2, 0.85, 0.25, 1) both;
+}
+.photo-modal-figure {
+  width: 100%;
+  transform: rotate(var(--modal-tilt, 0deg));
+  transition: transform 0.35s ease;
+}
+.photo-modal-figure .photo-frame {
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.photo-modal-figure .us-print {
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.65),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.photo-modal-figure figcaption {
+  color: var(--paper);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  margin-top: 3cqw;
+  font-size: 5cqw;
+}
+.photo-modal-figure .frame-polaroid figcaption {
+  color: var(--ink-soft);
+  text-shadow: none;
+  margin-top: 2cqw;
+}
+.photo-modal-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(201, 164, 99, 0.55);
+  border-radius: 50%;
+  background: rgba(20, 10, 10, 0.88);
+  color: var(--gold-light);
+  font-size: 1rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: background 0.2s, transform 0.2s;
+}
+.photo-modal-close:hover {
+  background: rgba(90, 22, 32, 0.92);
+  transform: scale(1.06);
+}
+@keyframes photo-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 /* ───────── Móvil ───────── */
 @media (max-width: 760px) {
   .music-label {
@@ -372,14 +519,25 @@ figure {
   .nav-center {
     min-width: 128px;
   }
+  .photo-modal {
+    width: min(350px, 84vw);
+  }
+  .photo-modal-close {
+    top: -12px;
+    right: -10px;
+  }
 }
 
 /* ───────── Movimiento reducido ───────── */
 @media (prefers-reduced-motion: reduce) {
-  .scene-glow {
+  .scene-glow,
+  .dust-mote,
+  .tulip-petal {
     animation: none;
+    opacity: 0;
   }
-  .letter {
+  .letter,
+  .photo-modal {
     animation: fade 0.2s ease both;
   }
   .nav {

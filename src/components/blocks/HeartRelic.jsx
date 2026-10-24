@@ -1,17 +1,28 @@
+import { useEffect, useState } from 'react'
 import { withBase } from '../../audio/engine.js'
 
 /**
  * Reliquia romántica para la página "The Gift of My Heart":
  * enmarca la ilustración del corazón que Morphine le entregó a Dalliancé
- * con filigrana dorada y placa de época.
+ * con filigrana dorada, placa de época y un latido lub-dub vivo y sutil.
  */
 export default function HeartRelic({
   src = '/photos/CORAZÓN/HER HEART.png',
   caption,
   subtitle,
 }) {
+  // Al llegar a la página late ligeramente más marcado durante los primeros ~2.2s
+  // y después se estabiliza en un ritmo tranquilo y orgánico.
+  const [phase, setPhase] = useState('awakening')
+
+  useEffect(() => {
+    setPhase('awakening')
+    const t = setTimeout(() => setPhase('steady'), 2200)
+    return () => clearTimeout(t)
+  }, [])
+
   return (
-    <figure className="heart-relic">
+    <figure className={`heart-relic is-${phase}`}>
       <div className="hr-card">
         <span className="hr-corner tl" aria-hidden="true" />
         <span className="hr-corner tr" aria-hidden="true" />
@@ -32,10 +43,16 @@ export default function HeartRelic({
               <stop offset="70%" stopColor="#8a2c3b" stopOpacity="0.09" />
               <stop offset="100%" stopColor="#000" stopOpacity="0" />
             </radialGradient>
+            <radialGradient id="hrPulseGlow" cx="50%" cy="50%" r="46%">
+              <stop offset="0%" stopColor="#e8ba78" stopOpacity="0.42" />
+              <stop offset="55%" stopColor="#a8384b" stopOpacity="0.14" />
+              <stop offset="100%" stopColor="#000" stopOpacity="0" />
+            </radialGradient>
           </defs>
 
           {/* Halo y doble óvalo grabado alrededor del corazón */}
           <circle cx="640" cy="922" r="365" fill="url(#hrGlow)" />
+          <circle className="hr-pulse-aura" cx="640" cy="922" r="355" fill="url(#hrPulseGlow)" />
           <ellipse
             cx="640"
             cy="922"
@@ -58,16 +75,18 @@ export default function HeartRelic({
             opacity="0.48"
           />
 
-          {/* Ilustración original de Morphine centrada ópticamente y sin recortes */}
-          <image
-            className="hr-img"
-            href={withBase(src)}
-            x="0"
-            y="0"
-            width="1286"
-            height="1800"
-            preserveAspectRatio="xMidYMid meet"
-          />
+          {/* Ilustración original de Morphine con latido lub-dub suave */}
+          <g className="hr-beat-group">
+            <image
+              className="hr-img"
+              href={withBase(src)}
+              x="0"
+              y="0"
+              width="1286"
+              height="1800"
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </g>
         </svg>
 
         <p className="hr-subtitle">{subtitle || 'STILL BEATING FOR YOU'}</p>

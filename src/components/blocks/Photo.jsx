@@ -1,4 +1,4 @@
-import { withBase } from '../../audio/engine.js'
+import { playSfx, withBase } from '../../audio/engine.js'
 
 export function Placeholder({ label }) {
   return (
@@ -14,9 +14,41 @@ export function Placeholder({ label }) {
   )
 }
 
-export default function Photo({ src, alt, caption, placeholder, frame = 'corners', ratio = '4 / 5', fit }) {
+export default function Photo({
+  src,
+  alt,
+  caption,
+  placeholder,
+  frame = 'corners',
+  ratio = '4 / 5',
+  fit,
+  rotate,
+  onOpenPhoto,
+}) {
+  const handleInspect = () => {
+    if (!src || !onOpenPhoto) return
+    playSfx('envelope')
+    onOpenPhoto({ type: 'photo', src, alt, caption, frame, ratio, fit, rotate })
+  }
+
   return (
-    <figure className={`photo frame-${frame}`}>
+    <figure
+      className={`photo frame-${frame} ${src && onOpenPhoto ? 'block-interactive is-zoomable' : ''}`}
+      onClick={src && onOpenPhoto ? handleInspect : undefined}
+      onKeyDown={
+        src && onOpenPhoto
+          ? (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                handleInspect()
+              }
+            }
+          : undefined
+      }
+      tabIndex={src && onOpenPhoto ? 0 : undefined}
+      role={src && onOpenPhoto ? 'button' : undefined}
+      aria-label={src && onOpenPhoto ? `Ampliar fotografía: ${caption || alt || 'recuerdo'}` : undefined}
+    >
       <div className="photo-inner" style={{ aspectRatio: ratio }}>
         <div className="photo-image">
           {src ? (

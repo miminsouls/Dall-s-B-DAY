@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from '../../hooks/useMediaQuery.js'
+import { playSfx } from '../../audio/engine.js'
 
 export default function Envelope({ label, seal = 'M', letter, onOpenLetter }) {
   const [opened, setOpened] = useState(false)
@@ -9,6 +10,7 @@ export default function Envelope({ label, seal = 'M', letter, onOpenLetter }) {
 
   const handleClick = () => {
     if (!letter) return
+    playSfx('envelope')
     if (opened || reduced) {
       setOpened(true)
       onOpenLetter?.(letter)

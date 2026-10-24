@@ -1,13 +1,38 @@
-import { useEffect, useRef, useState } from 'react'
-import { createAudioEngine } from '../audio/engine.js'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { createAudioEngine, setSfxMuted } from '../audio/engine.js'
 
-export default function MusicToggle({ config }) {
+export default function MusicToggle({ config, autoStartSignal = 0 }) {
   const [on, setOn] = useState(false)
   const [busy, setBusy] = useState(false)
-  const [kind, setKind] = useState(null)
   const engine = useRef(null)
+  const userMuted = useRef(false)
 
   useEffect(() => () => engine.current?.stop(), [])
+
+  const startMusic = useCallback(async () => {
+    if (busy || on) return
+    setBusy(true)
+    try {
+      if (!engine.current) {
+        engine.current = await createAudioEngine(config)
+      }
+      if (!engine.current) return
+      setSfxMuted(false)
+      await engine.current.start()
+      setOn(true)
+    } catch (err) {
+      console.warn('No se pudo reproducir la música', err)
+    } finally {
+      setBusy(false)
+    }
+  }, [busy, on, config])
+
+  // Al abrir el broche de la portada, inicia la melodía suavemente si el usuario no la silenció antes
+  useEffect(() => {
+    if (autoStartSignal > 0 && !userMuted.current && !on) {
+      startMusic()
+    }
+  }, [autoStartSignal, on, startMusic])
 
   const toggle = async () => {
     if (busy) return
@@ -15,13 +40,16 @@ export default function MusicToggle({ config }) {
     try {
       if (!engine.current) {
         engine.current = await createAudioEngine(config)
-        setKind(engine.current?.kind ?? null)
       }
       if (!engine.current) return
       if (on) {
+        userMuted.current = true
+        setSfxMuted(true)
         engine.current.stop()
         setOn(false)
       } else {
+        userMuted.current = false
+        setSfxMuted(false)
         await engine.current.start()
         setOn(true)
       }
@@ -32,7 +60,7 @@ export default function MusicToggle({ config }) {
     }
   }
 
-  const label = on ? 'Silenciar música' : 'Activar música'
+  const label = on ? 'Silenciar música y sonidos' : 'Activar música y sonidos'
 
   return (
     <button
@@ -55,7 +83,7 @@ export default function MusicToggle({ config }) {
           </g>
         )}
       </svg>
-      <span className="music-label">{on ? 'Música' : 'Sin música'}</span>
+      <span className="music-label">{on ? 'Música' : 'Silenciado'}</span>
     </button>
   )
 }

@@ -23,7 +23,7 @@ const COMPONENTS = {
 }
 
 /** Posiciona un bloque dentro de la página según `pos` y `rotate`. */
-export default function Block({ block, chapter, onOpenLetter }) {
+export default function Block({ block, chapter, onOpenLetter, onOpenPhoto }) {
   const Component = COMPONENTS[block.type]
   if (!Component) {
     if (import.meta.env.DEV) console.warn(`Tipo de bloque desconocido: ${block.type}`)
@@ -38,7 +38,7 @@ export default function Block({ block, chapter, onOpenLetter }) {
   }
   return (
     <div className={`block block-${block.type}`} style={style}>
-      <Component {...block} chapter={chapter} onOpenLetter={onOpenLetter} />
+      <Component {...block} chapter={chapter} onOpenLetter={onOpenLetter} onOpenPhoto={onOpenPhoto} />
     </div>
   )
 }

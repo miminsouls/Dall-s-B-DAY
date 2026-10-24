@@ -1,7 +1,7 @@
 import { Divider } from './Ornaments.jsx'
 import Block from './blocks/Block.jsx'
 
-export default function Page({ desc, side, album, onOpenLetter, onBackgroundClick }) {
+export default function Page({ desc, side, album, onOpenLetter, onOpenPhoto, onBackgroundClick }) {
   if (!desc) return <div className={`page paper side-${side}`} aria-hidden="true" />
 
   if (desc.kind === 'endpaper') {
@@ -46,7 +46,7 @@ export default function Page({ desc, side, album, onOpenLetter, onBackgroundClic
           </p>
         )}
         {page.blocks.map((b, i) => (
-          <Block key={i} block={b} chapter={chapter} onOpenLetter={onOpenLetter} />
+          <Block key={i} block={b} chapter={chapter} onOpenLetter={onOpenLetter} onOpenPhoto={onOpenPhoto} />
         ))}
         <span className="page-number">{number}</span>
       </>

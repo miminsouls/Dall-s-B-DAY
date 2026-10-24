@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Page from './Page.jsx'
 import Cover from './Cover.jsx'
 import { useSwipe } from '../hooks/useMediaQuery.js'
+import { playSfx } from '../audio/engine.js'
 
 const FLIP_MS = 900
 const OPEN_MS = 1400
@@ -18,7 +19,15 @@ export function buildFlat(album) {
   return flat
 }
 
-export default function Book({ album, single, reduced, onOpenLetter, modalOpen }) {
+export default function Book({
+  album,
+  single,
+  reduced,
+  onOpenLetter,
+  onOpenPhoto,
+  onAlbumOpen,
+  modalOpen,
+}) {
   const flat = useMemo(() => buildFlat(album), [album])
   const spreadCount = flat.length / 2
   const lastPage = album.pages.length - 1 // índice plano de la última página con contenido
@@ -41,11 +50,16 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   // 1) se presiona el broche y la correa se suelta, 2) la cubierta gira, 3) álbum abierto
   const openAlbum = () => {
     if (stage !== 'closed') return
+    playSfx('clasp')
+    onAlbumOpen?.()
     setPos(0)
     setSlide(null)
     setStage('unclasping')
     const unclasp = reduced ? 150 : UNCLASP_MS
-    later(() => setStage('opening'), unclasp)
+    later(() => {
+      playSfx('page')
+      setStage('opening')
+    }, unclasp)
     later(() => {
       setStage('open')
       bookRef.current?.focus({ preventScroll: true })
@@ -54,6 +68,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
 
   const closeAlbum = () => {
     if (stage !== 'open' || flip) return
+    playSfx('page')
     setPos(0)
     setSlide(null)
     setStage('closing')
@@ -78,6 +93,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   const goSpread = useCallback(
     (t) => {
       if (flip || t < 0 || t >= spreadCount || t === spread) return
+      playSfx('page')
       if (reduced) {
         setSlide(t > spread ? 'next' : 'prev')
         setPos(t * 2)
@@ -95,6 +111,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   const goPage = useCallback(
     (t) => {
       if (t < 0 || t > lastPage || t === page) return
+      playSfx('page')
       setSlide(t > page ? 'next' : 'prev')
       setPos(t)
     },
@@ -165,7 +182,8 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   }
 
   const isOpen = stage === 'open'
-  const pageProps = { album, onOpenLetter }
+  const pageProps = { album, onOpenLetter, onOpenPhoto }
+  const leafPageProps = { album, onOpenLetter }
   const slideClass = slide ? `slide-${slide}` : ''
 
   const singleClick = (e) => {
@@ -211,10 +229,10 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
             {leaf && (
               <div className={`leaf leaf-${leaf.dir}`} aria-hidden="true">
                 <div className="leaf-face front">
-                  <Page {...pageProps} desc={leaf.front} side="right" />
+                  <Page {...leafPageProps} desc={leaf.front} side="right" />
                 </div>
                 <div className="leaf-face back">
-                  <Page {...pageProps} desc={leaf.back} side="left" />
+                  <Page {...leafPageProps} desc={leaf.back} side="left" />
                 </div>
               </div>
             )}
