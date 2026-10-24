@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#301b25" />
+<title>M & D — A Little Piece of Forever</title>
+<style>
+:root{--wine:#572437;--wine-dark:#321724;--gold:#c8a56c;--paper:#f3e7d4;--ink:#503b3c;--rose:#9d5869}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(ellipse at 50% 25%,#71515c,#3c2733 58%,#251a25);}
+button{font:inherit}button:focus-visible,summary:focus-visible{outline:3px solid #e7bc74;outline-offset:5px}
+.stage{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:35px 16px 30px;overflow:hidden}
+.kicker{font:11px/1.5 Arial,sans-serif;letter-spacing:.32em;color:#ead6b9;text-align:center;margin-bottom:28px}
+.book-area{width:min(920px,100%);display:grid;place-items:center;perspective:1400px}
+.cover{position:relative;width:min(355px,78vw);aspect-ratio:.76;background:linear-gradient(90deg,#31121e 0%,#79384b 6%,#4e1c2d 14%,#6d2d40 65%,#421b2b 100%);border:2px solid #bd9b66;border-radius:8px 18px 18px 8px;box-shadow:inset 0 0 0 8px #572035,inset 0 0 0 10px #b68f5c,inset 0 0 35px #16070b66,7px 7px 0 #dfd0b6,16px 20px 38px #0008;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#e7c892;text-align:center;transition:transform .6s ease,opacity .45s ease}
+.cover:before{content:'';position:absolute;inset:21px;border:1px solid #d5b27888;border-radius:4px 12px 12px 4px;pointer-events:none}.flourish{font-size:35px;line-height:1;margin:20px 0}.monogram{font-size:64px;letter-spacing:.02em;text-shadow:0 2px 2px #230d19}.cover-line{width:110px;border-top:1px solid #d7b77c;margin:22px 0}.cover-title{font:12px/2 Arial,sans-serif;letter-spacing:.24em}.cover-date{font-style:italic;margin-top:24px;font-size:15px}
+.clasp{position:absolute;right:-24px;top:43%;width:47px;height:74px;border:2px solid #e0bf82;border-radius:10px 17px 17px 10px;background:linear-gradient(110deg,#8e673c,#e4c68e 50%,#9a7143);box-shadow:3px 5px 10px #0007;cursor:pointer;display:grid;place-items:center;color:#5b2b37;z-index:2;transition:filter .2s,transform .2s}.clasp:hover{filter:brightness(1.15);transform:translateX(3px)}.clasp span{font-size:28px}
+.hint{margin-top:33px;font:italic 13px Georgia,serif;color:#e3c8b3;text-align:center;min-height:20px}
+.open-book{display:none;width:100%;max-width:900px;min-height:485px;position:relative;background:#572a3c;border:8px solid #56283a;border-radius:9px 19px 19px 9px;box-shadow:5px 6px 0 #b59a78,13px 18px 40px #0009;animation:arrive .6s ease both}
+@keyframes arrive{from{opacity:0;transform:scale(.94) rotateY(-10deg)}to{opacity:1;transform:scale(1) rotateY(0)}}
+.spread{display:grid;grid-template-columns:1fr 1fr;min-height:470px}.page{position:relative;min-width:0;padding:30px 35px 45px;background:linear-gradient(90deg,#e9dac3,#f8eedf 18%,#f3e7d4 92%,#e5d3ba);overflow:hidden}.page:first-child{box-shadow:inset -12px 0 20px #6c4b3b23;border-right:1px solid #bea98d}.page:last-child{background:linear-gradient(90deg,#d8c4a9,#f5e9d7 8%,#f8edde 90%,#e8d9c3)}
+.page:after{content:'';position:absolute;inset:12px;border:1px solid #cbbba744;pointer-events:none}.page h2{font-size:clamp(19px,2.6vw,30px);font-weight:normal;text-align:center;margin:12px 0 20px;color:#7a4350}.hand{font-family:'Segoe Print','Bradley Hand','Comic Sans MS',cursive;font-style:italic}.page p{font-size:14px;line-height:1.7}.center{text-align:center}.tiny{font-size:12px!important}.flower{color:#a56573;text-align:center;font-size:28px}.polaroid{display:flex;align-items:center;justify-content:center;position:relative;width:76%;height:210px;margin:18px auto;background:#d7c5b4;border:10px solid #fff9f0;border-bottom-width:33px;box-shadow:2px 6px 12px #0003;color:#8b756a;text-align:center;font:12px/1.5 Arial,sans-serif;transform:rotate(-5deg);overflow:hidden}.polaroid.right{transform:rotate(6deg)}.polaroid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.polaroid .placeholder{padding:10px}.caption{font:italic 13px/1.5 'Segoe Print','Comic Sans MS',cursive;color:#924f61;text-align:center;margin:16px auto;max-width:270px}.tape{position:absolute;z-index:2;width:72px;height:21px;background:#caa18b9c;top:-7px;left:calc(50% - 36px);transform:rotate(-9deg)}
+.envelope{display:block;position:relative;margin:25px auto 15px;width:170px;height:112px;background:linear-gradient(145deg,#f4e5cc,#d8bd9a);border:1px solid #bda17b;box-shadow:3px 5px 9px #0002;cursor:pointer}.envelope:before{content:'';position:absolute;inset:0;background:linear-gradient(33deg,transparent 49.5%,#b9a083 50%,transparent 50.5%),linear-gradient(147deg,transparent 49.5%,#b9a083 50%,transparent 50.5%)}.wax{position:absolute;top:calc(50% - 20px);left:calc(50% - 20px);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#873b50;color:#f6d6a5;box-shadow:0 2px 5px #0004;font-size:21px}.letter-details{text-align:center}.letter-details summary{list-style:none;cursor:pointer}.letter-details summary::-webkit-details-marker{display:none}.letter{position:relative;z-index:3;background:#fff6e5;border:1px solid #c7ad87;padding:18px;margin:15px auto;max-width:330px;text-align:left;box-shadow:3px 4px 12px #0002}.letter p{font-size:12px;line-height:1.6}
+.corner{position:absolute;bottom:0;right:0;width:74px;height:74px;border:0;background:linear-gradient(135deg,transparent 49%,#d5bfa1 50%,#fff5e6 51%,#e7d6bb 100%);filter:drop-shadow(-3px -3px 3px #6d503b33);cursor:pointer;z-index:5;transition:transform .25s,filter .25s;transform-origin:100% 100%}.corner:hover{transform:scale(1.16);filter:drop-shadow(-5px -5px 5px #6d503b55)}.corner:after{content:'›';position:absolute;right:12px;bottom:8px;color:#8c5762;font-size:27px}.corner.prev{left:0;right:auto;transform:scaleX(-1)}.corner.prev:hover{transform:scaleX(-1) scale(1.16)}
+.close-book{position:absolute;top:-32px;right:0;border:0;background:none;color:#e6ceb6;cursor:pointer;font:12px Arial,sans-serif;letter-spacing:.12em}.spread[hidden],.cover[hidden],.open-book[hidden]{display:none!important}
+.empty-frame{border:2px dashed #bda58c;min-height:160px;margin:25px 10px;display:grid;place-items:center;text-align:center;color:#aa8c78;font-style:italic}
+@media(max-width:620px){.stage{padding:30px 8px}.open-book{border-width:5px;min-height:320px}.spread{min-height:310px}.page{padding:18px 11px 40px}.page h2{font-size:17px;margin:10px 0 13px}.page p{font-size:10px;line-height:1.5}.polaroid{width:90%;height:125px;border-width:6px;border-bottom-width:20px;margin:13px auto}.caption{font-size:10px;margin:8px auto}.flower{font-size:21px}.envelope{width:105px;height:70px;margin:14px auto}.wax{width:28px;height:28px;top:calc(50% - 14px);left:calc(50% - 14px);font-size:15px}.corner{width:53px;height:53px}.letter{padding:9px;margin:9px auto}.letter p{font-size:9px}.cover{max-width:300px}.monogram{font-size:53px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="stage">
+<div class="kicker">A BIRTHDAY GIFT · OCTOBER 23</div>
+<div class="book-area">
+<section class="cover" id="cover" aria-label="Portada del álbum">
+<div class="flourish" aria-hidden="true">❦</div><div class="monogram">M &amp; D</div><div class="cover-line"></div><div class="cover-title">A LITTLE PIECE<br>OF FOREVER</div><div class="cover-date">October 23</div><div class="flourish" aria-hidden="true">❦</div>
+<button class="clasp" id="openClasp" type="button" aria-label="Desabrochar y abrir el álbum"><span aria-hidden="true">❀</span></button>
+</section>
+<section class="open-book" id="openBook" hidden aria-label="Álbum abierto">
+<button class="close-book" id="closeBook" type="button" aria-label="Cerrar álbum">✕ CERRAR ÁLBUM</button>
+<div class="spread" data-spread="0">
+<article class="page"><div class="flower">❀</div><h2 class="hand" style="margin-top:65px">Happy birthday,<br>my love.</h2><p class="center">A little something from me to you.</p><div class="flower" style="margin-top:55px">♡</div></article>
+<article class="page"><h2 class="hand">Open me, handsome…</h2><p class="center">I made you something.</p><details class="letter-details"><summary aria-label="Abrir carta"><span class="envelope"><span class="wax">M</span></span><span class="caption">Psst… open this ♡</span></summary><div class="letter"><p><em>To my favorite birthday boy,</em></p><p>I spent an embarrassing amount of time thinking about your gift. Which is ridiculous, considering I've already given you my actual heart.</p><p>So here's a little piece of my life, and all the moments that became ours.</p><p>Now be a good boy and turn the page.</p><p class="hand">Your Morphi ♡</p></div></details><button class="corner" data-next aria-label="Doblar la esquina y pasar página"></button></article>
+</div>
+<div class="spread" data-spread="1" hidden>
+<article class="page"><h2 class="hand">Once upon a<br>little redhead…</h2><figure class="polaroid"><span class="tape"></span><span class="placeholder">Baby Morphi<br><small>01-morphine-bebe</small></span></figure><p class="caption">Yes, I've always been this adorable.</p><button class="corner prev" data-prev aria-label="Volver a la página anterior"></button></article>
+<article class="page"><div class="flower">✿</div><figure class="polaroid right"><span class="tape"></span><span class="placeholder">Little Morphi<br><small>02-morphine-infancia</small></span></figure><h2 class="hand">Little me,<br>big dreams.</h2><button class="corner" data-next aria-label="Pasar a la página siguiente"></button></article>
+</div>
+<div class="spread" data-spread="2" hidden>
+<article class="page"><h2 class="hand">Before there was us…</h2><figure class="polaroid"><span class="tape"></span><span class="placeholder">Ballet memories<br><small>03-morphine-ballet</small></span></figure><p class="caption">A thousand dances before I found you.</p><button class="corner prev" data-prev aria-label="Volver a la página anterior"></button></article>
+<article class="page"><h2 class="hand">And then<br>there was you.</h2><figure class="polaroid right"><span class="tape"></span><span class="placeholder">Our first photo<br><small>05-morphine-dalliance</small></span></figure><p class="caption">You had NO idea what you were getting into. ♡</p><button class="corner" data-next aria-label="Pasar a la página siguiente"></button></article>
+</div>
+<div class="spread" data-spread="3" hidden>
+<article class="page"><h2 class="hand">My favorite person<br>to annoy.</h2><figure class="polaroid"><span class="tape"></span><span class="placeholder">A silly memory<br><small>06-nuestros-recuerdos</small></span></figure><p class="caption">Te amo, incluso cuando eres insoportable. ♡</p><button class="corner prev" data-prev aria-label="Volver a la página anterior"></button></article>
+<article class="page"><h2 class="hand">Our little forever…</h2><figure class="polaroid right"><span class="tape"></span><span class="placeholder">Ultrasound photo<br><small>07-mellizos</small></span></figure><p class="caption">Two tiny heartbeats. Two little troublemakers.</p><button class="corner" data-next aria-label="Pasar a la página siguiente"></button></article>
+</div>
+<div class="spread" data-spread="4" hidden>
+<article class="page"><h2 class="hand">The best is<br>yet to come.</h2><p class="center" style="margin-top:65px">So many pictures we haven't taken.<br><br>So many birthdays, little hands to hold, and memories waiting for us.</p><div class="flower" style="margin-top:35px">♡</div><button class="corner prev" data-prev aria-label="Volver a la página anterior"></button></article>
+<article class="page"><h2 class="hand">To be continued…</h2><div class="empty-frame">For our future<br>memories ♡</div><details class="letter-details"><summary aria-label="Abrir última carta"><span class="envelope" style="height:65px"><span class="wax">♡</span></span><span class="caption">One last letter…</span></summary><div class="letter"><p>My darling,</p><p>Now there are two little hearts growing inside me, and a whole family waiting to make new memories.</p><p>I left these pages empty on purpose. Because the best part of our story hasn't happened yet.</p><p>Happy birthday, my love.</p><p class="hand">Forever yours, Morphine ♡</p></div></details></article>
+</div>
+</section>
+</div>
+<p class="hint" id="hint">Touch the golden clasp ♡</p>
+</main>
+<script>
+(()=>{
+'use strict';
+const cover=document.getElementById('cover');
+const book=document.getElementById('openBook');
+const hint=document.getElementById('hint');
+const spreads=[...document.querySelectorAll('[data-spread]')];
+let current=0;
+function showSpread(index){
+  if(index<0||index>=spreads.length)return;
+  current=index;
+  spreads.forEach((spread,i)=>{spread.hidden=i!==current;});
+  hint.textContent=current===spreads.length-1?'Our story is still being written ♡':'Lift the folded corner to turn the page ♡';
+}
+document.getElementById('openClasp').addEventListener('click',()=>{
+  cover.hidden=true;book.hidden=false;showSpread(0);
+  document.querySelector('[data-next]').focus({preventScroll:true});
+});
+document.getElementById('closeBook').addEventListener('click',()=>{
+  book.hidden=true;cover.hidden=false;hint.textContent='Touch the golden clasp ♡';
+  document.getElementById('openClasp').focus({preventScroll:true});
+});
+document.querySelectorAll('[data-next]').forEach(button=>button.addEventListener('click',()=>showSpread(current+1)));
+document.querySelectorAll('[data-prev]').forEach(button=>button.addEventListener('click',()=>showSpread(current-1)));
+document.addEventListener('keydown',event=>{
+  if(book.hidden||event.target.closest('summary'))return;
+  if(event.key==='ArrowRight')showSpread(current+1);
+  if(event.key==='ArrowLeft')showSpread(current-1);
+});
+})();
+</script>
+</body>
+</html>

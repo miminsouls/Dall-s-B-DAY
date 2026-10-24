@@ -13,9 +13,13 @@
 
 export const album = {
   cover: {
-    kicker: 'Álbum de',
-    names: ['Morphine', 'Dalliancé'],
-    subtitle: '[Subtítulo provisional]',
+    // Textos tomados de morphine_album_base/index.html
+    kicker: 'A Birthday Gift · October 23', // línea sobre el álbum cerrado
+    monogram: ['M', 'D'],
+    title: ['A Little Piece', 'of Forever'],
+    date: 'October 23',
+    hint: 'Touch the golden clasp ♡', // texto bajo el álbum cerrado
+    ariaLabel: 'Desabrochar y abrir el álbum de Morphine para Dalliancé',
   },
 
   titlePage: {

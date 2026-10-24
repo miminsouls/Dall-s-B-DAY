@@ -28,3 +28,41 @@ export function CornerFlourish({ className = '' }) {
     </svg>
   )
 }
+
+/** Hoja de hiedra (❦) dibujada en SVG para que se vea igual en cualquier dispositivo. */
+export function Fleuron({ className = '' }) {
+  return (
+    <svg className={className} viewBox="0 0 120 32" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round">
+        <path d="M6 16 H40" />
+        <path d="M80 16 H114" />
+        <path d="M40 16 C46 6, 52 6, 54 12" />
+        <path d="M80 16 C74 26, 68 26, 66 20" />
+      </g>
+      <path
+        d="M60 5 C52 5, 47 11, 50 18 C52 23, 57 25, 60 29 C63 25, 68 23, 70 18 C73 11, 68 5, 60 5 Z"
+        fill="currentColor"
+      />
+      <path d="M60 9 C58 13, 58 19, 60 25" fill="none" stroke="rgba(0,0,0,.35)" strokeWidth="1.1" />
+      <circle cx="6" cy="16" r="1.8" fill="currentColor" />
+      <circle cx="114" cy="16" r="1.8" fill="currentColor" />
+    </svg>
+  )
+}
+
+/** Cartela ovalada de doble filete para enmarcar el monograma. */
+export function Cartouche({ className = '' }) {
+  return (
+    <svg className={className} viewBox="0 0 200 150" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+      <g fill="none" stroke="currentColor" strokeLinecap="round">
+        <ellipse cx="100" cy="75" rx="96" ry="71" strokeWidth="1.6" />
+        <ellipse cx="100" cy="75" rx="89" ry="64" strokeWidth=".8" strokeDasharray="1.5 3.5" />
+        <path d="M100 0 v8 M100 142 v8 M0 75 h8 M192 75 h8" strokeWidth="1.6" />
+      </g>
+      <g fill="currentColor">
+        <circle cx="100" cy="4" r="2.4" />
+        <circle cx="100" cy="146" r="2.4" />
+      </g>
+    </svg>
+  )
+}

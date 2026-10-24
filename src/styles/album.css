@@ -33,7 +33,8 @@
   width: var(--page-w);
   perspective: 1800px;
 }
-.double .book.stage-closed {
+.double .book.stage-closed,
+.double .book.stage-unclasping {
   transform: translateX(-25%);
 }
 
@@ -194,10 +195,15 @@
 .stage-closing .cover {
   transition: none;
 }
-.stage-closed .cover:hover,
-.stage-closed .cover:focus-within {
-  transform: rotateY(-9deg);
-  transition-duration: 0.6s;
+/* Con el broche cerrado la tapa no cede: solo se “tensa” un poco al pasar sobre el broche */
+.stage-closed:has(.clasp:hover) .cover,
+.stage-closed:has(.clasp:focus-visible) .cover {
+  transform: rotateY(-1.5deg);
+  transition-duration: 0.4s;
+}
+.stage-unclasping .cover {
+  transform: rotateY(-4deg);
+  transition: transform 0.35s ease 0.35s;
 }
 .single .stage-opening .cover {
   opacity: 0;
@@ -285,7 +291,7 @@
 
 .cover-title {
   position: absolute;
-  inset: 18% 12% 18% 18%;
+  inset: 13% 15% 13% 16%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -301,78 +307,293 @@
   filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.7)) drop-shadow(0 -1px 0 rgba(255, 225, 170, 0.12));
   padding: 0 0.25em;
 }
-.ct-kicker {
-  font-family: var(--font-title);
-  font-size: 4.2cqw;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  margin-bottom: 2cqw;
+.ct-fleuron {
+  width: 34cqw;
+  color: var(--gold);
+  opacity: 0.9;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
 }
-.ct-name {
+.ct-fleuron.flip {
+  transform: scaleY(-1);
+}
+.ct-monogram-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56cqw;
+  height: 40cqw;
+  margin: 4cqw 0 3cqw;
+}
+.ct-cartouche {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(201, 164, 99, 0.7);
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55));
+}
+.ct-monogram {
+  display: flex;
+  align-items: center;
   font-family: var(--font-script);
-  font-size: 14cqw;
-  line-height: 1.15;
+  font-size: 18cqw;
+  line-height: 1.2;
+  margin-top: 1cqw;
 }
 .ct-amp {
   font-family: var(--font-title);
-  font-size: 7cqw;
+  font-size: 8cqw;
   line-height: 1;
+  padding: 0 0.1em;
+  margin: 0 -0.5cqw;
 }
-.ct-divider {
-  width: 52cqw;
-  margin: 4cqw 0 2.5cqw;
-  color: var(--gold-dim);
+.ct-rule {
+  width: 28cqw;
+  border-top: 1px solid rgba(215, 183, 124, 0.75);
+  margin: 1cqw 0 4cqw;
 }
-.ct-sub {
+.ct-title {
+  font-family: var(--font-title);
+  font-size: 4cqw;
+  line-height: 1.75;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  padding-left: 0.5em; /* compensa el espaciado de la última letra */
+}
+.ct-date {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 4cqw;
-  color: rgba(232, 211, 157, 0.75);
+  font-size: 4.6cqw;
+  color: rgba(232, 211, 157, 0.82);
+  margin: 3cqw 0 4cqw;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
 }
 
-.cover-button {
+/* ───────── Canto de las hojas (álbum cerrado) ───────── */
+.book-block {
   position: absolute;
-  inset: 0;
+  top: calc(var(--rim) * -1 + 3px);
+  bottom: calc(var(--rim) * -1 + 3px);
+  right: calc(var(--rim) * -1);
+  width: calc(var(--page-w) + var(--rim) - 3px);
+  z-index: 15;
+  border-radius: 0 4px 4px 0;
+  transform: translate(6px, 7px);
+  background: repeating-linear-gradient(to right, #f1e6cf 0 2px, #d6c5a3 2px 3px);
+  box-shadow: inset 0 0 0 1px rgba(110, 80, 40, 0.35);
+  transition: opacity 0.35s ease;
+}
+.book-block::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  border-radius: 0 0 4px 0;
+  background: repeating-linear-gradient(to bottom, #f1e6cf 0 2px, #d6c5a3 2px 3px);
+}
+.book-block.is-hidden {
+  opacity: 0;
+}
+.board-right {
+  transition: transform 0.5s ease;
+}
+.stage-closed .board-right,
+.stage-unclasping .board-right {
+  transform: translate(11px, 13px);
+}
+
+/* ───────── Broche ───────── */
+.clasp {
+  --clasp-w: calc(var(--page-w) * 0.3);
+  position: absolute;
+  z-index: 25;
+  top: 55%;
+  right: calc(var(--rim) * -1 - var(--page-w) * 0.055);
+  width: var(--clasp-w);
+  height: calc(var(--clasp-w) * 0.52);
+  padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
+  transform: translateY(-50%);
+  transform-origin: 100% 50%;
+  -webkit-tap-highlight-color: transparent;
 }
-.cover-button:disabled {
+.clasp:disabled {
   cursor: default;
+  pointer-events: none;
 }
-.cover-button:focus-visible {
+.clasp:focus-visible {
+  outline: none;
+}
+.clasp:focus-visible .clasp-plate {
   outline: 2px solid var(--gold-light);
-  outline-offset: -10px;
+  outline-offset: 4px;
 }
 
+/* Correa de cuero: se curva sobre el canto del álbum (extremo derecho redondeado) */
+.clasp-strap {
+  position: absolute;
+  top: 24%;
+  bottom: 24%;
+  left: 24%;
+  right: 0;
+  border-radius: 0 999px 999px 0;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 220, 200, 0.12);
+}
+.clasp-strap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to right, transparent 72%, rgba(0, 0, 0, 0.45));
+}
+.clasp-strap::after {
+  content: '';
+  position: absolute;
+  inset: 3px 6px 3px 0;
+  border: 1px dashed rgba(214, 181, 122, 0.55);
+  border-left: none;
+  border-radius: 0 999px 999px 0;
+}
+
+/* Placa dorada con el botón (enamel borgoña + flor) */
+.clasp-plate {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 46%;
+  display: grid;
+  place-items: center;
+  border-radius: 46% 18% 18% 46% / 50% 30% 30% 50%;
+  background: linear-gradient(160deg, #f6e3ae, #c9a463 28%, #7d5f2c 55%, #d9bb78 80%, #8a6a3a);
+  box-shadow:
+    inset 0 0 0 1.5px #6b5128,
+    inset 0 0 0 4px rgba(246, 227, 174, 0.55),
+    inset 0 0 0 5px rgba(107, 81, 40, 0.6),
+    0 4px 9px rgba(0, 0, 0, 0.55);
+  transition: filter 0.2s ease;
+}
+.clasp-stud {
+  width: 54%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #e9cf92;
+  background: radial-gradient(circle at 38% 32%, #a63a4c, #6e1a2a 60%, #3e0c16);
+  box-shadow:
+    0 0 0 2px #8a6a3a,
+    0 0 0 3px #f0d9a2,
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.clasp-stud svg {
+  width: 74%;
+  height: 74%;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.5));
+}
+.clasp:hover .clasp-plate,
+.clasp:focus-visible .clasp-plate {
+  filter: brightness(1.12);
+}
+.clasp:hover .clasp-stud,
+.clasp:focus-visible .clasp-stud {
+  box-shadow:
+    0 0 0 2px #8a6a3a,
+    0 0 0 3px #f0d9a2,
+    0 0 14px 3px rgba(240, 210, 150, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+.clasp:active .clasp-stud {
+  transform: scale(0.88);
+  box-shadow:
+    0 0 0 2px #8a6a3a,
+    0 0 0 3px #f0d9a2,
+    inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Al presionar: el botón se hunde, la correa se suelta y se aparta */
+.clasp.is-released {
+  animation: clasp-release 0.75s cubic-bezier(0.5, 0, 0.6, 1) forwards;
+}
+.clasp.is-released .clasp-stud {
+  animation: stud-press 0.25s ease both;
+}
+.clasp.is-returning {
+  animation: clasp-return 0.5s ease calc(var(--open-ms) - 150ms) both;
+}
+@keyframes stud-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+@keyframes clasp-release {
+  0% { transform: translateY(-50%); opacity: 1; }
+  25% { transform: translateY(-50%) translateX(-2%); opacity: 1; }
+  45% { transform: translateY(-50%) translateX(8%) rotate(-3deg); opacity: 1; }
+  100% { transform: translateY(-50%) translateX(55%) rotateY(-80deg) rotate(-8deg); opacity: 0; visibility: hidden; }
+}
+@keyframes clasp-return {
+  from { transform: translateY(-50%) translateX(25%); opacity: 0; }
+  to { transform: translateY(-50%); opacity: 1; }
+}
+
+/* ───────── Textos alrededor del álbum cerrado ───────── */
+.cover-kicker,
 .open-hint {
   position: absolute;
   right: 0;
-  top: calc(100% + 28px);
   width: var(--page-w);
   text-align: center;
-  font-family: var(--font-title);
-  letter-spacing: 0.14em;
-  font-size: 0.95rem;
-  color: rgba(232, 211, 157, 0.7);
-  animation: hint 2.6s ease-in-out infinite;
   pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.cover-kicker {
+  bottom: calc(100% + var(--rim) + 16px);
+  font-family: var(--font-title);
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(234, 214, 185, 0.78);
+  margin: 0;
+}
+.open-hint {
+  top: calc(100% + var(--rim) + 26px);
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: rgba(227, 200, 179, 0.85);
+  animation: hint 2.6s ease-in-out infinite;
+}
+.stage-unclasping .open-hint,
+.stage-unclasping .cover-kicker {
+  animation: none;
+  opacity: 0;
 }
 @keyframes hint {
-  0%, 100% { opacity: 0.45; }
+  0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
 
-/* ───────── Guarda jaspeada ───────── */
+/* ───────── Guarda (reverso de la tapa): papel borgoña con motivo de puntos dorados ───────── */
 .endpaper {
-  background-color: #3a0f17;
+  background-color: #3a1019;
   background-image:
-    radial-gradient(ellipse 40% 25% at 22% 30%, rgba(201, 164, 99, 0.22), transparent 70%),
-    radial-gradient(ellipse 30% 40% at 76% 66%, rgba(201, 164, 99, 0.16), transparent 70%),
+    radial-gradient(ellipse 70% 60% at 30% 25%, rgba(255, 200, 150, 0.08), transparent 70%),
     var(--noise),
-    repeating-radial-gradient(circle at 30% 40%, #3a0f17 0 7px, #4d1622 7px 10px, #2c0a10 10px 16px),
-    repeating-radial-gradient(circle at 75% 80%, transparent 0 9px, rgba(20, 40, 50, 0.25) 9px 12px);
-  background-size: auto, auto, 180px, auto, auto;
+    radial-gradient(circle at 50% 50%, rgba(201, 164, 99, 0.42) 0 1.4px, transparent 2px),
+    radial-gradient(circle at 50% 50%, rgba(201, 164, 99, 0.22) 0 1px, transparent 1.6px),
+    linear-gradient(160deg, #4a1520, #340d16 60%, #2a0a11);
+  background-size: auto, 180px, 22px 22px, 22px 22px, auto;
+  background-position: 0 0, 0 0, 0 0, 11px 11px, 0 0;
 }
 .page.endpaper {
   position: absolute;
@@ -484,9 +705,17 @@
     width: 52px;
     height: 52px;
   }
-  .open-hint {
-    top: calc(100% + 22px);
-  }
+}
+/* En pantallas estrechas el broche y el grosor sobresalen menos para no salirse */
+.single .clasp {
+  right: calc(var(--rim) * -1 - 8px);
+}
+.single .stage-closed .board-right,
+.single .stage-unclasping .board-right {
+  transform: translate(6px, 8px);
+}
+.single .book-block {
+  transform: translate(3px, 4px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -513,6 +742,24 @@
   }
   .open-hint {
     animation: none;
+  }
+  .stage-unclasping .cover,
+  .stage-closed:has(.clasp:hover) .cover,
+  .stage-closed:has(.clasp:focus-visible) .cover {
+    transform: none;
+  }
+  .board-right,
+  .book-block {
+    transition: none;
+  }
+  .clasp.is-released {
+    animation: fade 0.15s ease reverse forwards;
+  }
+  .clasp.is-released .clasp-stud {
+    animation: none;
+  }
+  .clasp.is-returning {
+    animation: fade 0.3s ease both;
   }
   .ribbon,
   .corner-btn::before {

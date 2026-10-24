@@ -6,6 +6,7 @@ import { useSwipe } from '../hooks/useMediaQuery.js'
 
 const FLIP_MS = 900
 const OPEN_MS = 1400
+const UNCLASP_MS = 750
 
 /**
  * Lista plana de caras de página:
@@ -24,7 +25,7 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   const spreadCount = flat.length / 2
   const lastPage = album.pages.length + 1 // índice plano de la última página con contenido
 
-  const [stage, setStage] = useState('closed') // closed | opening | open | closing
+  const [stage, setStage] = useState('closed') // closed | unclasping | opening | open | closing
   const [pos, setPos] = useState(0)
   const [flip, setFlip] = useState(null) // { from, to }
   const [slide, setSlide] = useState(null) // 'next' | 'prev'
@@ -39,15 +40,18 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
   const page = Math.min(Math.max(1, pos), lastPage)
 
   /* ── Abrir / cerrar ───────────────────────────────────── */
+  // 1) se presiona el broche y la correa se suelta, 2) la cubierta gira, 3) álbum abierto
   const openAlbum = () => {
     if (stage !== 'closed') return
     setPos(0)
     setSlide(null)
-    setStage('opening')
+    setStage('unclasping')
+    const unclasp = reduced ? 150 : UNCLASP_MS
+    later(() => setStage('opening'), unclasp)
     later(() => {
       setStage('open')
       bookRef.current?.focus({ preventScroll: true })
-    }, reduced ? 350 : OPEN_MS)
+    }, unclasp + (reduced ? 350 : OPEN_MS))
   }
 
   const closeAlbum = () => {
@@ -253,10 +257,13 @@ export default function Book({ album, single, reduced, onOpenLetter, modalOpen }
           </>
         )}
 
-        {stage === 'closed' && (
-          <p className="open-hint" aria-hidden="true">
-            Pulsa el álbum para abrirlo
-          </p>
+        {(stage === 'closed' || stage === 'unclasping') && (
+          <>
+            <p className="cover-kicker">{album.cover.kicker}</p>
+            <p className="open-hint" aria-hidden="true">
+              {album.cover.hint}
+            </p>
+          </>
         )}
       </div>
 

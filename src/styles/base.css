@@ -125,14 +125,13 @@ figure {
   pointer-events: auto;
 }
 .proto-badge {
-  position: absolute;
-  left: 50%;
-  top: max(18px, env(safe-area-inset-top));
-  transform: translateX(-50%);
+  position: fixed;
+  left: 16px;
+  bottom: max(14px, env(safe-area-inset-bottom));
   font-family: var(--font-title);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   letter-spacing: 0.12em;
-  color: rgba(232, 211, 157, 0.55);
+  color: rgba(232, 211, 157, 0.4);
   white-space: nowrap;
   pointer-events: none;
 }
@@ -348,9 +347,10 @@ figure {
 /* ───────── Móvil ───────── */
 @media (max-width: 760px) {
   .proto-badge {
-    top: auto;
-    bottom: calc(max(14px, env(safe-area-inset-bottom)) + 66px);
-    font-size: 0.68rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: max(10px, env(safe-area-inset-bottom));
+    font-size: 0.64rem;
   }
   .music-label {
     display: none;
