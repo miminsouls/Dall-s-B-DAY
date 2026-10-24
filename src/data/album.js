@@ -2,7 +2,7 @@
  * ─────────────────────────────────────────────────────────────
  *  CONTENIDO DEL ÁLBUM — edita SOLO este archivo
  * ─────────────────────────────────────────────────────────────
- *  · Estructura: 12 dobles páginas (24 páginas interiores).
+ *  · Estructura: 10 dobles páginas (20 páginas interiores).
  *  · Todo lo que aparece entre [corchetes] es TEXTO PROVISIONAL.
  *  · src: null  → se muestra una imagen provisional marcada.
  *    Para usar una foto real: guárdala en /public/photos/<carpeta>/ y escribe
@@ -58,7 +58,7 @@ export const album = {
         { type: 'chapterTitle', text: 'Happy Birthday, my love. ♡', pos: { top: '8%', left: '8%', width: '84%' } },
         {
           type: 'note',
-          text: 'A little something from me to you. ♡',
+          text: 'A little something from me to you, my handsome birthday boy. ♡',
           pos: { top: '36%', left: '14%', width: '72%' },
           rotate: -2,
         },
@@ -72,7 +72,7 @@ export const album = {
       blocks: [
         {
           type: 'note',
-          text: 'Open me, handsome… I made you something. ♡',
+          text: 'Open me, handsome… I made this whole world just for you. ♡',
           pos: { top: '10%', left: '14%', width: '72%' },
           rotate: 2,
         },
@@ -98,7 +98,7 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 2 (Págs. 3–4) · Infancia de Morphine (Bebé)
+    //  DOBLE PÁGINA 2 (Págs. 3–4) · Infancia combinada (Bebé y niña)
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'infancia',
@@ -109,8 +109,8 @@ export const album = {
         {
           type: 'photo',
           src: null,
-          placeholder: 'Baby Morphi · 01-morphine-bebe/foto-01',
-          caption: "Yes, I've always been this adorable.",
+          placeholder: 'Baby Morphi · 01-morphine-bebe',
+          caption: "Yes, my love, I've always been this adorable.",
           frame: 'tape',
           ratio: '4 / 5',
           pos: { top: '30%', left: '18%', width: '58%' },
@@ -122,97 +122,42 @@ export const album = {
     {
       chapter: 'infancia',
       spread: 2,
-      folder: '01-morphine-bebe',
+      folder: '02-morphine-infancia',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Baby Morphi · 01-morphine-bebe/foto-02',
-          caption: '[Recuerdo provisional de sus primeros años]',
+          placeholder: 'Little Morphi · 02-morphine-infancia',
+          caption: 'Little me, big dreams… already dreaming of someone like you. ♡',
           frame: 'corners',
-          ratio: '1 / 1',
-          pos: { top: '12%', left: '12%', width: '48%' },
+          ratio: '4 / 5',
+          pos: { top: '10%', left: '20%', width: '54%' },
           rotate: 3,
         },
         {
           type: 'note',
-          text: '[Nota manuscrita provisional — primeros recuerdos de Morphine bebé]',
-          pos: { top: '64%', left: '16%', width: '68%' },
+          text: '[Nota tierna provisional — su infancia y los sueños de una pequeña pelirroja]',
+          pos: { top: '66%', left: '14%', width: '72%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'fern', pos: { top: '14%', left: '68%', width: '20%' }, rotate: -14 },
+        { type: 'flower', variant: 'lavender', pos: { top: '12%', left: '72%', width: '18%' }, rotate: -14 },
       ],
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 3 (Págs. 5–6) · Infancia y sueños de niña
-    // ══════════════════════════════════════════════════════════
-    {
-      chapter: 'infancia',
-      spread: 3,
-      folder: '02-morphine-infancia',
-      blocks: [
-        {
-          type: 'photo',
-          src: null,
-          placeholder: 'Little Morphi · 02-morphine-infancia/foto-01',
-          caption: 'Little me, big dreams.',
-          frame: 'tape',
-          ratio: '4 / 5',
-          pos: { top: '12%', left: '14%', width: '56%' },
-          rotate: -3,
-        },
-        {
-          type: 'note',
-          text: '[Nota provisional — travesuras y sueños de infancia]',
-          pos: { top: '68%', left: '18%', width: '66%' },
-          rotate: 2,
-        },
-      ],
-    },
-    {
-      chapter: 'infancia',
-      spread: 3,
-      folder: '02-morphine-infancia',
-      blocks: [
-        {
-          type: 'photo',
-          src: null,
-          placeholder: 'Little Morphi · 02-morphine-infancia/foto-02',
-          caption: '[Pie de foto provisional · infancia]',
-          frame: 'deckle',
-          ratio: '1 / 1',
-          pos: { top: '10%', left: '10%', width: '44%' },
-          rotate: -4,
-        },
-        {
-          type: 'photo',
-          src: null,
-          placeholder: 'Little Morphi · 02-morphine-infancia/foto-03',
-          caption: '[Pie de foto provisional · infancia]',
-          frame: 'corners',
-          ratio: '3 / 4',
-          pos: { top: '38%', left: '48%', width: '42%' },
-          rotate: 5,
-        },
-        { type: 'flower', variant: 'lavender', pos: { top: '68%', left: '14%', width: '22%' }, rotate: 15 },
-      ],
-    },
-
-    // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 4 (Págs. 7–8) · Ballet
+    //  DOBLE PÁGINA 3 (Págs. 5–6) · Ballet y su vida antes de Dalliancé
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'ballet',
-      spread: 4,
+      spread: 3,
       folder: '03-morphine-ballet',
       blocks: [
         { type: 'chapterTitle', text: 'A thousand dances…', pos: { top: '6%', left: '8%', width: '84%' } },
         {
           type: 'photo',
           src: null,
-          placeholder: 'Ballet memories · 03-morphine-ballet/foto-01',
-          caption: 'A thousand dances before I found you.',
+          placeholder: 'Ballet memories · 03-morphine-ballet',
+          caption: 'A thousand dances before I found my favorite partner.',
           frame: 'corners',
           ratio: '4 / 5',
           pos: { top: '30%', left: '16%', width: '58%' },
@@ -223,80 +168,35 @@ export const album = {
     },
     {
       chapter: 'ballet',
-      spread: 4,
-      folder: '03-morphine-ballet',
+      spread: 3,
+      folder: '04-antes-de-dalliance',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Ballet · 03-morphine-ballet/foto-02',
-          caption: '[Zapatillas, ensayos y escenarios]',
-          frame: 'tape',
-          ratio: '4 / 3',
-          pos: { top: '12%', left: '12%', width: '74%' },
+          placeholder: 'Before there was us · 04-antes-de-dalliance',
+          caption: 'Every step was leading me straight into your arms. ♡',
+          frame: 'deckle',
+          ratio: '4 / 5',
+          pos: { top: '10%', left: '20%', width: '54%' },
           rotate: 3,
         },
         {
           type: 'note',
-          text: '[Nota manuscrita provisional — años de ballet y disciplina]',
-          pos: { top: '64%', left: '14%', width: '70%' },
-          rotate: -2,
-        },
-      ],
-    },
-
-    // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 5 (Págs. 9–10) · Vida antes de Dalliancé
-    // ══════════════════════════════════════════════════════════
-    {
-      chapter: 'ballet',
-      spread: 5,
-      folder: '04-antes-de-dalliance',
-      blocks: [
-        { type: 'chapterTitle', text: 'Before there was us…', pos: { top: '6%', left: '8%', width: '84%' } },
-        {
-          type: 'photo',
-          src: null,
-          placeholder: 'Life before you · 04-antes-de-dalliance/foto-01',
-          caption: '[Pie de foto provisional · su vida antes de conocerlo]',
-          frame: 'deckle',
-          ratio: '4 / 5',
-          pos: { top: '30%', left: '16%', width: '56%' },
-          rotate: -3,
-        },
-      ],
-    },
-    {
-      chapter: 'ballet',
-      spread: 5,
-      folder: '04-antes-de-dalliance',
-      blocks: [
-        {
-          type: 'photo',
-          src: null,
-          placeholder: 'Life before you · 04-antes-de-dalliance/foto-02',
-          caption: '[Pie de foto provisional]',
-          frame: 'tape',
-          ratio: '1 / 1',
-          pos: { top: '12%', left: '22%', width: '54%' },
-          rotate: 4,
-        },
-        {
-          type: 'note',
-          text: '[Nota provisional — quién era Morphine justo antes de cruzarse con Dalliancé]',
+          text: '[Nota manuscrita provisional — el ballet y su vida antes de encontrar al amor de su vida]',
           pos: { top: '66%', left: '14%', width: '72%' },
-          rotate: -1,
+          rotate: -2,
         },
         { type: 'flower', variant: 'fern', pos: { top: '12%', left: '8%', width: '16%' }, rotate: -22 },
       ],
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 6 (Págs. 11–12) · Cómo se conocieron
+    //  DOBLE PÁGINA 4 (Págs. 7–8) · Cómo se conocieron
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'conocimos',
-      spread: 6,
+      spread: 4,
       folder: '05-morphine-dalliance',
       blocks: [
         { type: 'chapterTitle', text: 'And then there was you.', pos: { top: '6%', left: '8%', width: '84%' } },
@@ -304,7 +204,7 @@ export const album = {
           type: 'photo',
           src: null,
           placeholder: 'Our first photo · 05-morphine-dalliance/foto-01',
-          caption: 'You had NO idea what you were getting into. ♡',
+          caption: 'The moment my whole world changed forever. ♡',
           frame: 'gold',
           ratio: '4 / 3',
           pos: { top: '32%', left: '12%', width: '76%' },
@@ -314,14 +214,14 @@ export const album = {
     },
     {
       chapter: 'conocimos',
-      spread: 6,
+      spread: 4,
       folder: '05-morphine-dalliance',
       blocks: [
         {
           type: 'photo',
           src: null,
           placeholder: 'How we met · 05-morphine-dalliance/foto-02',
-          caption: '[Pie de foto provisional · cómo nos conocimos]',
+          caption: 'One look at you, handsome, and I was completely yours.',
           frame: 'corners',
           ratio: '4 / 5',
           pos: { top: '10%', left: '20%', width: '54%' },
@@ -329,7 +229,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: '[Nota manuscrita provisional — el primer encuentro entre Morphine y Dalliancé]',
+          text: '[Nota romántica provisional — cómo se conocieron y cómo se enamoró de él al instante]',
           pos: { top: '66%', left: '14%', width: '72%' },
           rotate: -2,
         },
@@ -338,19 +238,19 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 7 (Págs. 13–14) · Recuerdos románticos
+    //  DOBLE PÁGINA 5 (Págs. 9–10) · Recuerdos románticos
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'recuerdos',
-      spread: 7,
+      spread: 5,
       folder: '05-morphine-dalliance',
       blocks: [
-        { type: 'chapterTitle', text: 'Falling for you…', pos: { top: '6%', left: '8%', width: '84%' } },
+        { type: 'chapterTitle', text: 'Hopelessly in love with you…', pos: { top: '6%', left: '8%', width: '84%' } },
         {
           type: 'photo',
           src: null,
           placeholder: 'Romantic memory · 05-morphine-dalliance/foto-03',
-          caption: '[Cita o momento romántico provisional]',
+          caption: 'Every kiss with you still feels like the very first one. ♡',
           frame: 'corners',
           ratio: '4 / 5',
           pos: { top: '30%', left: '16%', width: '58%' },
@@ -361,14 +261,14 @@ export const album = {
     },
     {
       chapter: 'recuerdos',
-      spread: 7,
+      spread: 5,
       folder: '05-morphine-dalliance',
       blocks: [
         {
           type: 'photo',
           src: null,
           placeholder: 'Romantic memory · 05-morphine-dalliance/foto-04',
-          caption: '[Segundo recuerdo romántico provisional]',
+          caption: 'Held in your arms is my favorite place to be.',
           frame: 'tape',
           ratio: '4 / 3',
           pos: { top: '12%', left: '14%', width: '72%' },
@@ -376,7 +276,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: '[Nota manuscrita provisional — un momento especial juntos]',
+          text: '[Nota melosa y enamorada provisional — citas, caricias y momentos inolvidables juntos]',
           pos: { top: '64%', left: '16%', width: '68%' },
           rotate: -2,
         },
@@ -384,19 +284,19 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 8 (Págs. 15–16) · Recuerdos divertidos y cómplices
+    //  DOBLE PÁGINA 6 (Págs. 11–12) · Recuerdos tiernos, coquetos y juguetones
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'recuerdos',
-      spread: 8,
+      spread: 6,
       folder: '06-nuestros-recuerdos',
       blocks: [
-        { type: 'chapterTitle', text: 'My favorite person to annoy.', pos: { top: '6%', left: '8%', width: '84%' } },
+        { type: 'chapterTitle', text: 'My favorite person to spoil. ♡', pos: { top: '6%', left: '8%', width: '84%' } },
         {
           type: 'photo',
           src: null,
-          placeholder: 'A silly memory · 06-nuestros-recuerdos/foto-01',
-          caption: 'Te amo, incluso cuando eres insoportable. ♡',
+          placeholder: 'Sweet memory · 06-nuestros-recuerdos/foto-01',
+          caption: 'Te amo con locura, mi vida… I can never get enough of your kisses. ♡',
           frame: 'tape',
           ratio: '1 / 1',
           pos: { top: '30%', left: '18%', width: '58%' },
@@ -406,14 +306,14 @@ export const album = {
     },
     {
       chapter: 'recuerdos',
-      spread: 8,
+      spread: 6,
       folder: '06-nuestros-recuerdos',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Fun memory · 06-nuestros-recuerdos/foto-02',
-          caption: '[Risas y locuras cotidianas]',
+          placeholder: 'Playful memory · 06-nuestros-recuerdos/foto-02',
+          caption: 'Stealing your hoodies and all your attention forever. ♡',
           frame: 'deckle',
           ratio: '4 / 5',
           pos: { top: '10%', left: '22%', width: '52%' },
@@ -421,7 +321,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: '[Nota provisional — broma interna o recuerdo divertido de los dos]',
+          text: '[Nota coqueta, tierna y juguetona provisional — risas, mimos y complicidad]',
           pos: { top: '66%', left: '14%', width: '72%' },
           rotate: -2,
         },
@@ -430,11 +330,11 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 9 (Págs. 17–18) · El regalo de su corazón
+    //  DOBLE PÁGINA 7 (Págs. 13–14) · El regalo de su corazón
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'recuerdos',
-      spread: 9,
+      spread: 7,
       folder: '06-nuestros-recuerdos',
       blocks: [
         { type: 'chapterTitle', text: 'The gift of my heart', pos: { top: '6%', left: '8%', width: '84%' } },
@@ -442,7 +342,7 @@ export const album = {
           type: 'photo',
           src: null,
           placeholder: 'My heart is yours · 06-nuestros-recuerdos/foto-03',
-          caption: '[Fotografía simbólica · el regalo de su corazón]',
+          caption: 'Every single beat belongs to you, my darling.',
           frame: 'gold',
           ratio: '4 / 5',
           pos: { top: '30%', left: '18%', width: '58%' },
@@ -452,12 +352,12 @@ export const album = {
     },
     {
       chapter: 'recuerdos',
-      spread: 9,
+      spread: 7,
       folder: '06-nuestros-recuerdos',
       blocks: [
         {
           type: 'note',
-          text: "I've already given you my actual heart… ♡",
+          text: "I've already given you my actual heart… and I'd give it to you a thousand times more. ♡",
           pos: { top: '10%', left: '14%', width: '72%' },
           rotate: 2,
         },
@@ -469,12 +369,12 @@ export const album = {
           rotate: -2,
           letter: {
             title: 'My heart is yours',
-            greeting: '[Saludo provisional]',
+            greeting: 'My sweet love,',
             body: [
-              '[Carta provisional sobre la promesa y entrega del corazón de Morphine a Dalliancé.]',
-              '[Puedes reemplazar este texto en src/data/album.js.]',
+              '[Carta romántica provisional sobre la entrega del corazón de Morphine a Dalliancé.]',
+              '[Puedes personalizar este texto en src/data/album.js.]',
             ],
-            signature: 'Yours, Morphine ♡',
+            signature: 'Yours completely, Morphine ♡',
           },
         },
         { type: 'flower', variant: 'rose', pos: { top: '74%', left: '68%', width: '20%' }, rotate: -24 },
@@ -482,19 +382,19 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 10 (Págs. 19–20) · Embarazo de los mellizos (Ecografía)
+    //  DOBLE PÁGINA 8 (Págs. 15–16) · Recién embarazada de los mellizos (Primera ecografía)
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'mellizos',
-      spread: 10,
+      spread: 8,
       folder: '07-mellizos',
       blocks: [
-        { type: 'chapterTitle', text: 'Our little forever…', pos: { top: '6%', left: '8%', width: '84%' } },
+        { type: 'chapterTitle', text: 'Our tiny new secret…', pos: { top: '6%', left: '8%', width: '84%' } },
         {
           type: 'ultrasound',
           src: null,
-          caption: 'Two tiny heartbeats. Two little troublemakers.',
-          header: ['07-mellizos', '[Fecha ecografía]'],
+          caption: 'Two tiny new heartbeats… we are going to be parents, my love! ♡',
+          header: ['07-mellizos', 'First Ultrasound'],
           pos: { top: '30%', left: '14%', width: '68%' },
           rotate: -3,
         },
@@ -502,14 +402,14 @@ export const album = {
     },
     {
       chapter: 'mellizos',
-      spread: 10,
+      spread: 8,
       folder: '07-mellizos',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Waiting for the twins · 07-mellizos/foto-01',
-          caption: '[Pie de foto provisional · esperando a los mellizos]',
+          placeholder: 'Just found out · 07-mellizos/foto-01',
+          caption: 'Still so tiny, just beginning to grow inside me… two little miracles made of our love. ♡',
           frame: 'corners',
           ratio: '4 / 5',
           pos: { top: '10%', left: '20%', width: '54%' },
@@ -517,7 +417,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: '[Nota manuscrita provisional — la noticia de los dos pequeños corazones]',
+          text: '[Nota tierna provisional — la emoción de descubrir que recién está embarazada de mellizos]',
           pos: { top: '66%', left: '14%', width: '72%' },
           rotate: -2,
         },
@@ -526,18 +426,18 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 11 (Págs. 21–22) · Dulce espera y futura familia
+    //  DOBLE PÁGINA 9 (Págs. 17–18) · Primeros días de esta nueva etapa
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'mellizos',
-      spread: 11,
+      spread: 9,
       folder: '07-mellizos',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Growing family · 07-mellizos/foto-02',
-          caption: '[Recuerdo provisional del embarazo]',
+          placeholder: 'Our new beginning · 07-mellizos/foto-02',
+          caption: 'The very beginning of our biggest adventure together. ♡',
           frame: 'tape',
           ratio: '4 / 3',
           pos: { top: '12%', left: '14%', width: '72%' },
@@ -545,7 +445,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'So many birthdays, little hands to hold, and memories waiting for us.',
+          text: 'Your hands on my belly, whispering to our two tiny beans… you are already the sweetest dad. ♡',
           pos: { top: '62%', left: '14%', width: '72%' },
           rotate: 2,
         },
@@ -553,14 +453,14 @@ export const album = {
     },
     {
       chapter: 'mellizos',
-      spread: 11,
+      spread: 9,
       folder: '07-mellizos',
       blocks: [
         {
           type: 'photo',
           src: null,
-          placeholder: 'Parents to be · 07-mellizos/foto-03',
-          caption: '[Morphine & Dalliancé · futuros papás]',
+          placeholder: 'Future parents · 07-mellizos/foto-03',
+          caption: 'Two little hearts just starting to beat, and so much love waiting for them.',
           frame: 'gold',
           ratio: '4 / 5',
           pos: { top: '12%', left: '20%', width: '56%' },
@@ -571,17 +471,17 @@ export const album = {
     },
 
     // ══════════════════════════════════════════════════════════
-    //  DOBLE PÁGINA 12 (Págs. 23–24) · Nuestro futuro juntos y última carta
+    //  DOBLE PÁGINA 10 (Págs. 19–20) · Nuestro futuro juntos y última carta
     // ══════════════════════════════════════════════════════════
     {
       chapter: 'futuro',
-      spread: 12,
+      spread: 10,
       folder: '08-nuestro-futuro',
       blocks: [
         { type: 'chapterTitle', text: 'The best is yet to come.', pos: { top: '6%', left: '8%', width: '84%' } },
         {
           type: 'note',
-          text: "So many pictures we haven't taken yet… ♡",
+          text: "So many pictures we haven't taken yet, so many birthdays and little hands to hold… ♡",
           pos: { top: '30%', left: '16%', width: '68%' },
           rotate: -2,
         },
@@ -595,9 +495,9 @@ export const album = {
             title: 'One last letter…',
             greeting: 'My darling,',
             body: [
-              'Now there are two little hearts growing inside me, and a whole family waiting to make new memories.',
+              'Right now, two tiny little hearts are just beginning to grow inside me, and a whole life together is waiting for us.',
               "I left these pages empty on purpose. Because the best part of our story hasn't happened yet.",
-              'Happy birthday, my love.',
+              'Happy birthday, my love. Thank you for making me the happiest woman alive.',
             ],
             signature: 'Forever yours, Morphine ♡',
           },
@@ -606,7 +506,7 @@ export const album = {
     },
     {
       chapter: 'futuro',
-      spread: 12,
+      spread: 10,
       folder: '08-nuestro-futuro',
       blocks: [
         {

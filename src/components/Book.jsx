@@ -9,7 +9,7 @@ const UNCLASP_MS = 750
 
 /**
  * Lista plana de caras de página:
- * 24 páginas de contenido agrupadas en 12 dobles páginas (pliegos) en escritorio.
+ * 20 páginas de contenido agrupadas en 10 dobles páginas (pliegos) en escritorio.
  */
 export function buildFlat(album) {
   const flat = []
