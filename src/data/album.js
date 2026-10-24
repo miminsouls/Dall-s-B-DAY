@@ -52,11 +52,11 @@ export const album = {
         { type: 'chapterTitle', text: 'Happy Birthday, my love. ♡', pos: { top: '8%', left: '8%', width: '84%' } },
         {
           type: 'note',
-          text: 'A little something from me to you, my handsome birthday boy… hecho con todo mi amor para mi Eterno favorito. ♡',
+          text: 'Un pequeño regalo hecho a mano para mi sol. Guardé aquí pedacitos de mi vida y todos los momentos que se volvieron nuestros.',
           pos: { top: '34%', left: '13%', width: '74%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'rose', pos: { top: '62%', left: '37%', width: '25%' }, rotate: 12 },
+        { type: 'flower', variant: 'tulip', pos: { top: '63%', left: '38%', width: '22%' }, rotate: 10 },
       ],
     },
     {
@@ -66,7 +66,7 @@ export const album = {
       blocks: [
         {
           type: 'note',
-          text: 'Open me, handsome… I made this whole album just for you. ♡',
+          text: 'Open me, handsome… I made this whole album just for you.',
           pos: { top: '10%', left: '14%', width: '72%' },
           rotate: 2,
         },
@@ -84,7 +84,8 @@ export const album = {
               "So here's a little piece of my life, and all the moments that became ours.",
               'Now be a good boy and turn the page.',
             ],
-            signature: 'Your Morphi ♡',
+            closing: 'All my kisses,',
+            signature: 'your Morphi',
           },
         },
         { type: 'flower', variant: 'lavender', pos: { top: '74%', left: '68%', width: '18%' }, rotate: -18 },
@@ -103,7 +104,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi  bebe flor en la oreja.jpg.jpeg',
-          caption: 'A tiny blossom ♡',
+          caption: 'A tiny blossom',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '21%', left: '8%', width: '36%' },
@@ -121,7 +122,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi  bebe dormida.jpg.jpeg',
-          caption: "Yes, mi amor, I've always been this adorable ♡",
+          caption: 'Así de chiquita era tu rojita',
           frame: 'corners',
           ratio: '4 / 3',
           pos: { top: '57%', left: '16%', width: '44%' },
@@ -138,7 +139,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi bebe tocando piano.jpg.jpeg',
-          caption: 'My very first melodies',
+          caption: 'Mis primeras melodías',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '9%', left: '8%', width: '37%' },
@@ -156,7 +157,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/01-morphine-bebe/morphi bebe gordita mimida.jpg.jpeg',
-          caption: 'Gordita y mimida ♡',
+          caption: 'Gordita y mimida',
           frame: 'deckle',
           ratio: '4 / 3',
           pos: { top: '52%', left: '8%', width: '42%' },
@@ -164,7 +165,7 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'Still the sleepiest, most spoiled little thing in your arms, mi vida. ♡',
+          text: 'Sigo siendo igual de dormilona y consentida cuando me tienes entre tus brazos, grandulón.',
           pos: { top: '55%', left: '54%', width: '38%' },
           rotate: -2,
         },
@@ -182,7 +183,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/02-morphine-infancia/morphi pelitorojo.jpg.jpeg',
-          caption: 'Fire in my hair',
+          caption: 'El pelito rojo que tanto te gusta',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '9%', left: '8%', width: '36%' },
@@ -191,7 +192,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/02-morphine-infancia/morphi infante puffy dress.jpg.jpeg',
-          caption: 'Always a little princess ♡',
+          caption: 'Always a little princess',
           frame: 'corners',
           ratio: '1 / 1',
           pos: { top: '10%', left: '54%', width: '36%' },
@@ -234,7 +235,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/02-morphine-infancia/morphi nature w a flower.jpg.jpeg',
-          caption: 'Saving petals for you ♡',
+          caption: 'Guardando flores para ti, sol',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '10%', left: '54%', width: '36%' },
@@ -251,10 +252,11 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'Every wish I made on dandelion seeds was secretly leading me to you, my darling. ♡',
-          pos: { top: '54%', left: '52%', width: '40%' },
+          text: 'Every wish I made on dandelion seeds was secretly leading me to you, my darling.',
+          pos: { top: '51%', left: '52%', width: '40%' },
           rotate: -2,
         },
+        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '66%', width: '15%' }, rotate: 14 },
       ],
     },
 
@@ -279,7 +281,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/04-antes-de-dalliance/morphi teen leyendo.jpg.jpeg',
-          caption: 'Quiet afternoons',
+          caption: 'Tardes tranquilas',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '21%', left: '55%', width: '34%' },
@@ -288,7 +290,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/04-antes-de-dalliance/morphi teen pintando.jpg.jpeg',
-          caption: 'Painting daydreams',
+          caption: 'Pintando sueños despierta',
           frame: 'tape',
           ratio: '1 / 1',
           pos: { top: '56%', left: '55%', width: '34%' },
@@ -296,8 +298,8 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'A thousand dances before I found my forever partner. ♡',
-          pos: { top: '65%', left: '8%', width: '40%' },
+          text: 'Mil bailes ensayados antes de encontrar a mi compañero para toda la eternidad, mi sol.',
+          pos: { top: '63%', left: '8%', width: '41%' },
           rotate: 2,
         },
       ],
@@ -328,7 +330,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/04-antes-de-dalliance/morphi teen car.jpg.jpeg',
-          caption: 'On my way to you',
+          caption: 'En camino hacia ti',
           frame: 'corners',
           ratio: '1 / 1',
           pos: { top: '52%', left: '8%', width: '36%' },
@@ -337,7 +339,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/04-antes-de-dalliance/morphi teen yate.jpg.jpeg',
-          caption: 'Sea breeze & daydreams ♡',
+          caption: 'Sea breeze & daydreams',
           frame: 'deckle',
           ratio: '1 / 1',
           pos: { top: '53%', left: '54%', width: '36%' },
@@ -358,7 +360,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine first pic.jpg.jpeg',
-          caption: 'Our very first photo ♡',
+          caption: 'Our very first photo',
           frame: 'gold',
           ratio: '4 / 5',
           pos: { top: '21%', left: '8%', width: '38%' },
@@ -375,10 +377,11 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'One look at you, mi amor, and my whole world belonged to you forever. ♡',
-          pos: { top: '69%', left: '14%', width: '72%' },
+          text: 'Bastó una sola mirada tuya, mi sol, para saber que mi mundo entero te pertenecía.',
+          pos: { top: '69%', left: '10%', width: '68%' },
           rotate: -1,
         },
+        { type: 'flower', variant: 'tulip', pos: { top: '67%', left: '81%', width: '13%' }, rotate: 14 },
       ],
     },
     {
@@ -398,7 +401,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine elevator.jpg.jpeg',
-          caption: 'Stolen elevator kisses ♡',
+          caption: 'Besos robados en el elevador',
           frame: 'tape',
           ratio: '1 / 1',
           pos: { top: '10%', left: '54%', width: '37%' },
@@ -407,7 +410,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine hug.jpg.jpeg',
-          caption: 'Held in your arms is my safest place in the universe',
+          caption: 'En tus brazos siempre me siento a salvo, mi grandote',
           frame: 'corners',
           ratio: '4 / 3',
           pos: { top: '53%', left: '16%', width: '54%' },
@@ -429,7 +432,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine kiss in the rain.jpg.jpeg',
-          caption: 'Kissing you in the rain ♡',
+          caption: 'Kissing you in the rain',
           frame: 'corners',
           ratio: '4 / 5',
           pos: { top: '21%', left: '8%', width: '38%' },
@@ -453,7 +456,7 @@ export const album = {
           pos: { top: '58%', left: '53%', width: '37%' },
           rotate: -2,
         },
-        { type: 'flower', variant: 'lavender', pos: { top: '68%', left: '14%', width: '18%' }, rotate: -14 },
+        { type: 'flower', variant: 'tulip', pos: { top: '66%', left: '14%', width: '18%' }, rotate: -12 },
       ],
     },
     {
@@ -464,7 +467,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine in bed.jpeg',
-          caption: 'Tangled up in you, mi vida',
+          caption: 'Enredada entre tus brazos, sol',
           frame: 'polaroid',
           ratio: '4 / 3',
           pos: { top: '9%', left: '15%', width: '58%' },
@@ -473,7 +476,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/05-morphine-dalliance/dallphine morning after.jpg.jpeg',
-          caption: 'Waking up in your arms ♡',
+          caption: 'Waking up in your arms',
           frame: 'corners',
           ratio: '4 / 3',
           pos: { top: '51%', left: '8%', width: '44%' },
@@ -481,8 +484,8 @@ export const album = {
         },
         {
           type: 'note',
-          text: 'Every morning next to you feels like heaven, handsome. Te amo con locura. ♡',
-          pos: { top: '53%', left: '55%', width: '37%' },
+          text: 'Despertar acurrucada contra tu pecho es mi lugar favorito del universo, grandulón. Te amo con locura.',
+          pos: { top: '52%', left: '55%', width: '38%' },
           rotate: -3,
         },
       ],
@@ -500,7 +503,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/06-nuestros-recuerdos/dall by morphi .jpg.jpeg',
-          caption: 'When I say your name ♡',
+          caption: 'Cuando me miras y me dices rojita',
           frame: 'gold',
           ratio: '1 / 1',
           pos: { top: '21%', left: '8%', width: '35%' },
@@ -509,7 +512,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/06-nuestros-recuerdos/dall bf material .jpg.jpeg',
-          caption: 'My handsome boy',
+          caption: 'Mi grandote hermoso',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '22%', left: '55%', width: '35%' },
@@ -527,7 +530,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/06-nuestros-recuerdos/viaje japon.png',
-          caption: 'Our escape to Japan ♡',
+          caption: 'Our escape to Japan',
           frame: 'tape',
           ratio: '1 / 1',
           pos: { top: '56%', left: '55%', width: '35%' },
@@ -552,7 +555,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/06-nuestros-recuerdos/bali beach.jpg.jpeg',
-          caption: 'Bali sunsets with you',
+          caption: 'Atardeceres en Bali contigo, sol',
           frame: 'polaroid',
           ratio: '1 / 1',
           pos: { top: '8%', left: '54%', width: '34%' },
@@ -561,7 +564,7 @@ export const album = {
         {
           type: 'photo',
           src: '/photos/06-nuestros-recuerdos/Bali pool.jpg.jpeg',
-          caption: 'Spoiled in paradise ♡',
+          caption: 'Consentida en el paraíso',
           frame: 'tape',
           ratio: '1 / 1',
           pos: { top: '42%', left: '6%', width: '31%' },
@@ -585,6 +588,7 @@ export const album = {
           pos: { top: '42%', left: '64%', width: '29%' },
           rotate: 3,
         },
+        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '12%', width: '14%' }, rotate: -14 },
       ],
     },
 
@@ -598,9 +602,10 @@ export const album = {
         { type: 'chapterTitle', text: 'The Gift of My Heart', pos: { top: '4%', left: '8%', width: '84%' } },
         {
           type: 'heartRelic',
+          src: '/photos/CORAZÓN/HER HEART.png',
           subtitle: 'COR MEUM · YOURS ALONE',
           caption: 'Safe in your sanctuary, still beating only for you. ♡',
-          pos: { top: '21%', left: '19%', width: '62%' },
+          pos: { top: '20%', left: '19%', width: '62%' },
           rotate: -1,
         },
       ],
@@ -611,7 +616,7 @@ export const album = {
       blocks: [
         {
           type: 'note',
-          text: 'Clay beats in my chest now, mi amor, because my real heart has belonged to you since that October. ♡',
+          text: 'Ahora late arcilla mágica en mi pecho, porque mi corazón verdadero vive guardado contigo desde aquel octubre, mi sol.',
           pos: { top: '10%', left: '12%', width: '76%' },
           rotate: 2,
         },
@@ -635,11 +640,11 @@ export const album = {
               'And when you miss me, remember that you have something no one else in this universe ever will.',
               'My heart, in every sense of the word.',
             ],
-            closing: 'Forever yours,',
-            signature: 'Your Morphi. ♡',
+            closing: 'Siempre tuya, mi sol,',
+            signature: 'tu Morphi',
           },
         },
-        { type: 'flower', variant: 'rose', pos: { top: '74%', left: '68%', width: '18%' }, rotate: -24 },
+        { type: 'flower', variant: 'tulip', pos: { top: '73%', left: '68%', width: '18%' }, rotate: -20 },
       ],
     },
 
@@ -655,14 +660,14 @@ export const album = {
         {
           type: 'ultrasound',
           src: '/photos/07-mellizos/eco mellizos.jpg',
-          caption: 'Two tiny new heartbeats… we are having twins, mi amor! ♡',
+          caption: 'Two tiny new heartbeats… we are having twins, my love! ♡',
           header: ['TWIN A & B', '~ 2 MONTHS'],
           pos: { top: '22%', left: '17%', width: '62%' },
           rotate: -2,
         },
         {
           type: 'note',
-          text: 'Just two months along, and I already love our little miracles almost as much as I love their daddy. ♡',
+          text: 'Apenas llevan dos meses creciendo dentro de mí y ya amo a nuestros pequeñitos casi tanto como a su papá.',
           pos: { top: '70%', left: '12%', width: '76%' },
           rotate: 2,
         },
@@ -676,18 +681,20 @@ export const album = {
         {
           type: 'ultrasound',
           src: '/photos/07-mellizos/eco 2.jpg',
-          caption: 'Still so tiny, just beginning to grow inside me… made of our love. ♡',
+          ratio: '736 / 992',
+          fit: 'contain',
+          caption: 'Tan chiquitos todavía, empezando a crecer dentro de mí…',
           header: ['OUR LITTLE FOREVER', 'FIRST ULTRASOUND'],
-          pos: { top: '10%', left: '17%', width: '62%' },
-          rotate: 2,
+          pos: { top: '8%', left: '7%', width: '44%' },
+          rotate: -2,
         },
         {
           type: 'note',
-          text: 'Your hands on my belly, whispering to our two tiny beans… you are already the sweetest father in eternity. ♡',
-          pos: { top: '61%', left: '14%', width: '72%' },
-          rotate: -2,
+          text: 'Tus manos enormes sobre mi vientre, hablándoles bajito a nuestros mellizos… vas a ser el papá más dulce de toda la eternidad, mi grandulón.',
+          pos: { top: '14%', left: '55%', width: '38%' },
+          rotate: 2,
         },
-        { type: 'flower', variant: 'lavender', pos: { top: '77%', left: '74%', width: '16%' }, rotate: -15 },
+        { type: 'flower', variant: 'tulip', pos: { top: '62%', left: '64%', width: '18%' }, rotate: -12 },
       ],
     },
 
@@ -702,7 +709,7 @@ export const album = {
         { type: 'chapterTitle', text: 'The best is yet to come.', pos: { top: '5%', left: '8%', width: '84%' } },
         {
           type: 'note',
-          text: "So many pictures we haven't taken yet, so many birthdays and four tiny hands to hold… ♡",
+          text: 'Tantas fotografías que aún nos falta tomar, tantos cumpleaños por delante y cuatro manitas pequeñas por sostener, mi sol…',
           pos: { top: '25%', left: '14%', width: '72%' },
           rotate: -2,
         },
@@ -727,8 +734,8 @@ export const album = {
               'Happy birthday, my beautiful boy.',
               'I love you more than I could ever fit into these pages.',
             ],
-            closing: 'Forever yours,',
-            signature: 'Morphine. ♡',
+            closing: 'Con todo mi amor,',
+            signature: 'tu rojita. ♡',
           },
         },
       ],
@@ -741,9 +748,10 @@ export const album = {
         {
           type: 'blank',
           title: 'To be continued…',
-          text: 'For our future memories ♡',
+          text: 'For our future memories',
           pos: { top: '8%', left: '8%', width: '84%' },
         },
+        { type: 'flower', variant: 'tulip', pos: { top: '76%', left: '72%', width: '16%' }, rotate: 12 },
       ],
     },
   ],

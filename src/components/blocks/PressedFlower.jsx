@@ -64,7 +64,76 @@ function Fern() {
   )
 }
 
-const VARIANTS = { rose: Rose, lavender: Lavender, fern: Fern }
+function Tulip() {
+  return (
+    <svg viewBox="0 0 90 135" aria-hidden="true" focusable="false">
+      {/* Tallo principal ligeramente curvado */}
+      <path
+        d="M45 48 C44 76, 47 102, 42 130"
+        stroke="#657347"
+        strokeWidth="2.1"
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* Hojas largas y envolventes típicas del tulipán */}
+      <path
+        d="M43 118 C26 98, 22 72, 32 54 C35 74, 38 94, 44 110 Z"
+        fill="#738152"
+        opacity=".72"
+      />
+      <path
+        d="M45 122 C62 102, 66 78, 57 58 C53 78, 50 96, 45 114 Z"
+        fill="#697748"
+        opacity=".68"
+      />
+      {/* Nervaduras sutiles de las hojas */}
+      <path
+        d="M43 114 C33 96, 30 76, 33 58 M45 118 C55 100, 58 82, 56 62"
+        stroke="#525f36"
+        strokeWidth=".7"
+        fill="none"
+        opacity=".65"
+      />
+      {/* Cáliz y pétalos prensados del tulipán en tonos borgoña/rosa antiguo */}
+      <g transform="translate(45 34)">
+        {/* Pétalo central posterior */}
+        <path
+          d="M0 -22 C10 -18, 12 -2, 0 14 C-12 -2, -10 -18, 0 -22 Z"
+          fill="#9d4452"
+          opacity=".62"
+        />
+        {/* Pétalo izquierdo */}
+        <path
+          d="M-2 14 C-16 10, -20 -8, -9 -20 C-2 -14, -1 -2, -2 14 Z"
+          fill="#b86874"
+          opacity=".72"
+        />
+        {/* Pétalo derecho */}
+        <path
+          d="M2 14 C16 10, 20 -8, 9 -20 C2 -14, 1 -2, 2 14 Z"
+          fill="#ae5966"
+          opacity=".72"
+        />
+        {/* Pétalo frontal central con pliegue */}
+        <path
+          d="M0 -18 C8 -12, 9 4, 0 15 C-9 4, -8 -12, 0 -18 Z"
+          fill="#c77b85"
+          opacity=".58"
+        />
+        {/* Trazo botánico fino en tinta sepia */}
+        <path
+          d="M0 -22 C10 -18, 12 -2, 0 14 C-12 -2, -10 -18, 0 -22 M-2 14 C-16 10, -20 -8, -9 -20 M2 14 C16 10, 20 -8, 9 -20"
+          stroke="#5c222d"
+          strokeWidth=".75"
+          fill="none"
+          opacity=".55"
+        />
+      </g>
+    </svg>
+  )
+}
+
+const VARIANTS = { rose: Rose, lavender: Lavender, fern: Fern, tulip: Tulip }
 
 export default function PressedFlower({ variant = 'rose' }) {
   const Flower = VARIANTS[variant] ?? Rose
