@@ -55,6 +55,7 @@ export default function LetterModal({ letter, onClose }) {
               {p}
             </p>
           ))}
+          {letter.closing && <p className="letter-closing">{letter.closing}</p>}
           {letter.signature && <p className="letter-signature">{letter.signature}</p>}
         </div>
       </div>

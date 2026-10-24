@@ -113,21 +113,21 @@
 }
 .ch-kicker {
   font-family: var(--font-title);
-  font-size: 3.4cqw;
-  letter-spacing: 0.35em;
+  font-size: 2.8cqw;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--wine);
 }
 .ch-title {
   font-family: var(--font-script);
   font-weight: normal;
-  font-size: 9.5cqw;
-  line-height: 1.2;
+  font-size: 7.4cqw;
+  line-height: 1.1;
   color: var(--ink);
-  margin-top: 1cqw;
+  margin-top: 0.5cqw;
 }
 .ch-divider {
-  width: 46cqw;
-  margin-top: 1.5cqw;
+  width: 40cqw;
+  margin-top: 0.8cqw;
   color: var(--gold-dim);
 }

@@ -24,11 +24,11 @@
 }
 .photo figcaption,
 .ultrasound figcaption {
-  margin-top: 2cqw;
+  margin-top: 1.1cqw;
   text-align: center;
   font-family: var(--font-script);
-  font-size: 4.4cqw;
-  line-height: 1.2;
+  font-size: 3.5cqw;
+  line-height: 1.12;
   color: var(--ink-soft);
 }
 
@@ -112,10 +112,6 @@
   height: 3.2cqw;
   transform: translateX(-50%) rotate(-5deg);
   background: rgba(215, 190, 155, 0.78);
-}
-.photo figcaption {
-  margin-top: 1.2cqw;
-  font-size: 3.8cqw;
 }
 
 /* Imagen provisional */
